@@ -62,3 +62,8 @@ Option 	Format
 
      **To convert .XML to .HTML**    
      Run: `xsltproc <filename>.xml -o <filename>.HTML`
+
+     Example of how to enumerate a network and output to an .xml and convert to .html
+     * `nmap -O 10.1.16.0/24 -oX enum.xml && xsltproc enum.xml -o enum.html`
+
+     then just run  `firefox enum.html` to see the scanned results in a readable format.
