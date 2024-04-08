@@ -47,7 +47,6 @@ Dirb is a web content scanner that launches a dictionary-based attack to identif
 
     Type dirb, then press ENTER in your terminal window to see a list of options and command usage examples.
 
-    dirb-7.png
 
         After typing dirb Scroll up and down in your terminal to see all of the options.
 
@@ -55,31 +54,27 @@ Dirb is a web content scanner that launches a dictionary-based attack to identif
 
     dirb http://10.1.16.9/
 
-    enum-dirb-run.png
 
         You can scroll up and down in the terminal to view the entire output of our scan. When an accessible directory is found it will be noted with ==>
 
     Our output dirb identified 41,526 files and 89 directories. We can view a directory by typing the webservers directory in the address bar of our browser.
 
-    Open your firefox browser in the top left-hand corner. firefox.png
+    Open your firefox browser in the top left-hand corner. 
 
     In the address bar, navigate to the second directory discovered by dirb.
 
     http://10.1.16.9/dvwa/
 
-    dirb-dvwa.png
 
     Nikto is a web server vulnerability scanning tool. Nikto will return any cookies received from the web server while attempting to detect files, software, and directories running on the web server.
 
     Type nikto, then press ENTER in your terminal window to see a list of options and command usage examples.
 
-    nikto-help.png
 
     In your terminal run a Nikto scan on the metasploitable2 host.
 
     nikto -h 10.1.16.9
 
-    enum-nikto.png
 
         When a directory is identified our output will show Directory indexing found. or directory found to the right of the directory discovered.
 
