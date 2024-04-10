@@ -28,6 +28,9 @@ to perform a port scan without host discovery
 To perform a stealth scan (only sends SYN packet)
 * example: `nmap -sS 10.1.16.1`
 
+To perform a default script scan:
+* example: `nmap -sC 10.1.16.1`
+
 One commonly used option is -A which performs OS detection, version detection of services, script scanning for vulnerabilities and traceroute all in one option.
 * Example: `nmap -A 10.1.16.1`
 
