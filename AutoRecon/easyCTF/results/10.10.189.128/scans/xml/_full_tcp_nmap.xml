@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.94SVN scan initiated Wed Apr 17 13:17:26 2024 as: nmap -vv -&#45;reason -Pn -T4 -sV -sC -&#45;version-all -A -&#45;osscan-guess -p- -oN /home/kali/Documents/Portfolio/AutoRecon/easyCTF/results/10.10.189.128/scans/_full_tcp_nmap.txt -oX /home/kali/Documents/Portfolio/AutoRecon/easyCTF/results/10.10.189.128/scans/xml/_full_tcp_nmap.xml 10.10.189.128 -->
+<nmaprun scanner="nmap" args="nmap -vv -&#45;reason -Pn -T4 -sV -sC -&#45;version-all -A -&#45;osscan-guess -p- -oN /home/kali/Documents/Portfolio/AutoRecon/easyCTF/results/10.10.189.128/scans/_full_tcp_nmap.txt -oX /home/kali/Documents/Portfolio/AutoRecon/easyCTF/results/10.10.189.128/scans/xml/_full_tcp_nmap.xml 10.10.189.128" start="1713374246" startstr="Wed Apr 17 13:17:26 2024" version="7.94SVN" xmloutputversion="1.05">
+<scaninfo type="connect" protocol="tcp" numservices="65535" services="1-65535"/>
+<verbose level="2"/>
+<debugging level="0"/>
+<taskbegin task="NSE" time="1713374246"/>
+<taskend task="NSE" time="1713374246"/>
+<taskbegin task="NSE" time="1713374246"/>
+<taskend task="NSE" time="1713374246"/>
+<taskbegin task="NSE" time="1713374246"/>
+<taskend task="NSE" time="1713374246"/>
+<taskbegin task="Parallel DNS resolution of 1 host." time="1713374246"/>
+<taskend task="Parallel DNS resolution of 1 host." time="1713374246"/>
+<taskbegin task="Connect Scan" time="1713374246"/>
+<taskprogress task="Connect Scan" time="1713374277" percent="13.76" remaining="195" etc="1713374471"/>
+<taskprogress task="Connect Scan" time="1713374307" percent="19.27" remaining="256" etc="1713374563"/>
+<taskprogress task="Connect Scan" time="1713374337" percent="19.49" remaining="376" etc="1713374713"/>
+<taskprogress task="Connect Scan" time="1713374367" percent="19.70" remaining="494" etc="1713374860"/>
+<taskprogress task="Connect Scan" time="1713374397" percent="21.54" remaining="550" etc="1713374947"/>
+<taskprogress task="Connect Scan" time="1713374427" percent="23.06" remaining="604" etc="1713375031"/>
+<taskprogress task="Connect Scan" time="1713374460" percent="24.80" remaining="650" etc="1713375109"/>
+<taskprogress task="Connect Scan" time="1713374505" percent="27.17" remaining="695" etc="1713375199"/>
+<taskprogress task="Connect Scan" time="1713374877" percent="49.48" remaining="645" etc="1713375521"/>
+<taskprogress task="Connect Scan" time="1713374997" percent="56.42" remaining="581" etc="1713375577"/>
+<taskprogress task="Connect Scan" time="1713375072" percent="61.71" remaining="513" etc="1713375584"/>
+<taskprogress task="Connect Scan" time="1713375150" percent="67.06" remaining="445" etc="1713375594"/>
+<taskprogress task="Connect Scan" time="1713375237" percent="72.62" remaining="374" etc="1713375611"/>
+<taskprogress task="Connect Scan" time="1713375330" percent="78.09" remaining="305" etc="1713375634"/>
+<taskprogress task="Connect Scan" time="1713375423" percent="83.45" remaining="234" etc="1713375656"/>
+<taskprogress task="Connect Scan" time="1713375525" percent="88.82" remaining="162" etc="1713375686"/>
+<taskprogress task="Connect Scan" time="1713375633" percent="94.04" remaining="88" etc="1713375721"/>
+<taskend task="Connect Scan" time="1713375744" extrainfo="65535 total ports"/>
+<taskbegin task="Service scan" time="1713375744"/>
+<taskend task="Service scan" time="1713375750" extrainfo="3 services on 1 host"/>
+<taskbegin task="NSE" time="1713375750"/>
+<taskprogress task="NSE" time="1713375781" percent="99.76" remaining="1" etc="1713375781"/>
+<taskend task="NSE" time="1713375781"/>
+<taskbegin task="NSE" time="1713375781"/>
+<taskend task="NSE" time="1713375782"/>
+<taskbegin task="NSE" time="1713375782"/>
+<taskend task="NSE" time="1713375782"/>
+<host starttime="1713374246" endtime="1713375782"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="10.10.189.128" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="filtered" count="65532">
+<extrareasons reason="no-response" count="65532" proto="tcp" ports="1-20,22-79,81-2221,2223-65535"/>
+</extraports>
+<port protocol="tcp" portid="21"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="ftp" product="vsftpd" version="3.0.3" ostype="Unix" method="probed" conf="10"><cpe>cpe:/a:vsftpd:vsftpd:3.0.3</cpe></service><script id="ftp-anon" output="Anonymous FTP login allowed (FTP code 230)&#xa;Can&apos;t get directory listing: TIMEOUT"/><script id="ftp-syst" output="&#xa;  STAT: &#xa;FTP server status:&#xa;     Connected to ::ffff:10.6.57.153&#xa;     Logged in as ftp&#xa;     TYPE: ASCII&#xa;     No session bandwidth limit&#xa;     Session timeout in seconds is 300&#xa;     Control connection is plain text&#xa;     Data connections will be plain text&#xa;     At session startup, client count was 1&#xa;     vsFTPd 3.0.3 - secure, fast, stable&#xa;End of status"><elem key="STAT">&#xa;FTP server status:&#xa;     Connected to ::ffff:10.6.57.153&#xa;     Logged in as ftp&#xa;     TYPE: ASCII&#xa;     No session bandwidth limit&#xa;     Session timeout in seconds is 300&#xa;     Control connection is plain text&#xa;     Data connections will be plain text&#xa;     At session startup, client count was 1&#xa;     vsFTPd 3.0.3 - secure, fast, stable&#xa;End of status</elem>
+</script></port>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="http" product="Apache httpd" version="2.4.18" extrainfo="(Ubuntu)" method="probed" conf="10"><cpe>cpe:/a:apache:http_server:2.4.18</cpe></service><script id="http-methods" output="&#xa;  Supported Methods: POST OPTIONS GET HEAD"><table key="Supported Methods">
+<elem>POST</elem>
+<elem>OPTIONS</elem>
+<elem>GET</elem>
+<elem>HEAD</elem>
+</table>
+</script><script id="http-robots.txt" output="2 disallowed entries &#xa;/ /openemr-5_0_1_3 "/><script id="http-server-header" output="Apache/2.4.18 (Ubuntu)"><elem>Apache/2.4.18 (Ubuntu)</elem>
+</script><script id="http-title" output="Apache2 Ubuntu Default Page: It works"><elem key="title">Apache2 Ubuntu Default Page: It works</elem>
+</script></port>
+<port protocol="tcp" portid="2222"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="ssh" product="OpenSSH" version="7.2p2 Ubuntu 4ubuntu2.8" extrainfo="Ubuntu Linux; protocol 2.0" ostype="Linux" method="probed" conf="10"><cpe>cpe:/a:openbsd:openssh:7.2p2</cpe><cpe>cpe:/o:linux:linux_kernel</cpe></service><script id="ssh-hostkey" output="&#xa;  2048 29:42:69:14:9e:ca:d9:17:98:8c:27:72:3a:cd:a9:23 (RSA)&#xa;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCj5RwZ5K4QU12jUD81IxGPdEmWFigjRwFNM2pVBCiIPWiMb+R82pdw5dQPFY0JjjicSysFN3pl8ea2L8acocd/7zWke6ce50tpHaDs8OdBYLfpkh+OzAsDwVWSslgKQ7rbi/ck1FF1LIgY7UQdo5FWiTMap7vFnsT/WHL3HcG5Q+el4glnO4xfMMvbRar5WZd4N0ZmcwORyXrEKvulWTOBLcoMGui95Xy7XKCkvpS9RCpJgsuNZ/oau9cdRs0gDoDLTW4S7OI9Nl5obm433k+7YwFeoLnuZnCzegEhgq/bpMo+fXTb/4ILI5bJHJQItH2Ae26iMhJjlFsMqQw0FzLf&#xa;  256 9b:d1:65:07:51:08:00:61:98:de:95:ed:3a:e3:81:1c (ECDSA)&#xa;ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBM6Q8K/lDR5QuGRzgfrQSDPYBEBcJ+/2YolisuiGuNIF+1FPOweJy9esTtstZkG3LPhwRDggCp4BP+Gmc92I3eY=&#xa;  256 12:65:1b:61:cf:4d:e5:75:fe:f4:e8:d4:6e:10:2a:f6 (ED25519)&#xa;ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ2I73yryK/Q6UFyvBBMUJEfznlIdBXfnrEqQ3lWdymK"><table>
+<elem key="key">AAAAB3NzaC1yc2EAAAADAQABAAABAQCj5RwZ5K4QU12jUD81IxGPdEmWFigjRwFNM2pVBCiIPWiMb+R82pdw5dQPFY0JjjicSysFN3pl8ea2L8acocd/7zWke6ce50tpHaDs8OdBYLfpkh+OzAsDwVWSslgKQ7rbi/ck1FF1LIgY7UQdo5FWiTMap7vFnsT/WHL3HcG5Q+el4glnO4xfMMvbRar5WZd4N0ZmcwORyXrEKvulWTOBLcoMGui95Xy7XKCkvpS9RCpJgsuNZ/oau9cdRs0gDoDLTW4S7OI9Nl5obm433k+7YwFeoLnuZnCzegEhgq/bpMo+fXTb/4ILI5bJHJQItH2Ae26iMhJjlFsMqQw0FzLf</elem>
+<elem key="fingerprint">294269149ecad917988c27723acda923</elem>
+<elem key="type">ssh-rsa</elem>
+<elem key="bits">2048</elem>
+</table>
+<table>
+<elem key="key">AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBM6Q8K/lDR5QuGRzgfrQSDPYBEBcJ+/2YolisuiGuNIF+1FPOweJy9esTtstZkG3LPhwRDggCp4BP+Gmc92I3eY=</elem>
+<elem key="fingerprint">9bd165075108006198de95ed3ae3811c</elem>
+<elem key="type">ecdsa-sha2-nistp256</elem>
+<elem key="bits">256</elem>
+</table>
+<table>
+<elem key="key">AAAAC3NzaC1lZDI1NTE5AAAAIJ2I73yryK/Q6UFyvBBMUJEfznlIdBXfnrEqQ3lWdymK</elem>
+<elem key="fingerprint">12651b61cf4de575fef4e8d46e102af6</elem>
+<elem key="type">ssh-ed25519</elem>
+<elem key="bits">256</elem>
+</table>
+</script></port>
+</ports>
+<times srtt="85542" rttvar="1942" to="100000"/>
+</host>
+<taskbegin task="NSE" time="1713375782"/>
+<taskend task="NSE" time="1713375782"/>
+<taskbegin task="NSE" time="1713375782"/>
+<taskend task="NSE" time="1713375782"/>
+<taskbegin task="NSE" time="1713375782"/>
+<taskend task="NSE" time="1713375782"/>
+<runstats><finished time="1713375782" timestr="Wed Apr 17 13:43:02 2024" summary="Nmap done at Wed Apr 17 13:43:02 2024; 1 IP address (1 host up) scanned in 1536.12 seconds" elapsed="1536.12" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

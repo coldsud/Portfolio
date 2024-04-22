@@ -1,0 +1,51 @@
+```bash
+curl -sSikf http://10.10.189.128:80/robots.txt
+```
+
+[/home/kali/Documents/Portfolio/AutoRecon/easyCTF/results/10.10.189.128/scans/tcp80/tcp_80_http_curl-robots.txt](file:///home/kali/Documents/Portfolio/AutoRecon/easyCTF/results/10.10.189.128/scans/tcp80/tcp_80_http_curl-robots.txt):
+
+```
+HTTP/1.1 200 OK
+Date: Wed, 17 Apr 2024 17:20:11 GMT
+Server: Apache/2.4.18 (Ubuntu)
+Last-Modified: Sat, 17 Aug 2019 16:15:27 GMT
+ETag: "3a1-590526a3cb146"
+Accept-Ranges: bytes
+Content-Length: 929
+Vary: Accept-Encoding
+Content-Type: text/plain
+
+#
+# "$Id: robots.txt 3494 2003-03-19 15:37:44Z mike $"
+#
+#   This file tells search engines not to index your CUPS server.
+#
+#   Copyright 1993-2003 by Easy Software Products.
+#
+#   These coded instructions, statements, and computer programs are the
+#   property of Easy Software Products and are protected by Federal
+#   copyright law.  Distribution and use rights are outlined in the file
+#   "LICENSE.txt" which should have been included with this file.  If this
+#   file is missing or damaged please contact Easy Software Products
+#   at:
+#
+#       Attn: CUPS Licensing Information
+#       Easy Software Products
+#       44141 Airport View Drive, Suite 204
+#       Hollywood, Maryland 20636-3111 USA
+#
+#       Voice: (301) 373-9600
+#       EMail: cups-info@cups.org
+#         WWW: http://www.cups.org
+#
+
+User-agent: *
+Disallow: /
+
+
+Disallow: /openemr-5_0_1_3
+#
+# End of "$Id: robots.txt 3494 2003-03-19 15:37:44Z mike $".
+#
+
+```

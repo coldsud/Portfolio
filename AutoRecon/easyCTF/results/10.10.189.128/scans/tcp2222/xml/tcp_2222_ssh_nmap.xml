@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.94SVN scan initiated Wed Apr 17 13:19:15 2024 as: nmap -vv -&#45;reason -Pn -T4 -sV -p 2222 -&#45;script=banner,ssh2-enum-algos,ssh-hostkey,ssh-auth-methods -oN /home/kali/Documents/Portfolio/AutoRecon/easyCTF/results/10.10.189.128/scans/tcp2222/tcp_2222_ssh_nmap.txt -oX /home/kali/Documents/Portfolio/AutoRecon/easyCTF/results/10.10.189.128/scans/tcp2222/xml/tcp_2222_ssh_nmap.xml 10.10.189.128 -->
+<nmaprun scanner="nmap" args="nmap -vv -&#45;reason -Pn -T4 -sV -p 2222 -&#45;script=banner,ssh2-enum-algos,ssh-hostkey,ssh-auth-methods -oN /home/kali/Documents/Portfolio/AutoRecon/easyCTF/results/10.10.189.128/scans/tcp2222/tcp_2222_ssh_nmap.txt -oX /home/kali/Documents/Portfolio/AutoRecon/easyCTF/results/10.10.189.128/scans/tcp2222/xml/tcp_2222_ssh_nmap.xml 10.10.189.128" start="1713374355" startstr="Wed Apr 17 13:19:15 2024" version="7.94SVN" xmloutputversion="1.05">
+<scaninfo type="connect" protocol="tcp" numservices="1" services="2222"/>
+<verbose level="2"/>
+<debugging level="0"/>
+<taskbegin task="NSE" time="1713374355"/>
+<taskend task="NSE" time="1713374355"/>
+<taskbegin task="NSE" time="1713374355"/>
+<taskend task="NSE" time="1713374355"/>
+<taskbegin task="Parallel DNS resolution of 1 host." time="1713374355"/>
+<taskend task="Parallel DNS resolution of 1 host." time="1713374355"/>
+<taskbegin task="Connect Scan" time="1713374355"/>
+<taskend task="Connect Scan" time="1713374356" extrainfo="1 total ports"/>
+<taskbegin task="Service scan" time="1713374356"/>
+<taskbegin task="NSE" time="1713374356"/>
+<taskend task="NSE" time="1713374356"/>
+<taskbegin task="NSE" time="1713374356"/>
+<taskend task="NSE" time="1713374356"/>
+<host starttime="1713374355" endtime="1713374356"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="10.10.189.128" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><port protocol="tcp" portid="2222"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="EtherNetIP-1" method="table" conf="3"/></port>
+</ports>
+</host>
+<taskbegin task="NSE" time="1713374356"/>
+<taskend task="NSE" time="1713374356"/>
+<taskbegin task="NSE" time="1713374356"/>
+<taskend task="NSE" time="1713374356"/>
+<runstats><finished time="1713374356" timestr="Wed Apr 17 13:19:16 2024" summary="Nmap done at Wed Apr 17 13:19:16 2024; 1 IP address (1 host up) scanned in 1.36 seconds" elapsed="1.36" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

