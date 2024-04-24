@@ -42,5 +42,5 @@ we see that we can run vim as root. this tells us we just need to launch a vim a
 once inside the vim editor we just need to hit ESC to get to command mode and type out the command to open a root shell
 `:!bash` viola!!! we are in
 
-or you could try 
+2. or you could try 
 `sudo vi -c '!bash'` **note** the two looking single quotes in that command are different.
