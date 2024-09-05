@@ -51,3 +51,45 @@ depth = float(input("Enter the depth: "))
 volume = width * height * depth
 print ("The Area is", volume, "cubic units.")
 ```
+
+_ex2-1_
+
+Rounding formula to get an output to an exat decimal place
+
+
+```
+Roundnum = round(number to be rounded, to what dcimal place)
+```
+### example
+`rounded_number = round(3.14159, 2)
+print(rounded_number)`
+
+
+_ex2-2_
+
+### Write code that will calculate the surface area of a cube
+
+```# Write your program here
+edge = float(input("Input Edge length"))
+
+cubearea = ( (edge * edge) * 6)
+
+print ("cube surface area is", cubearea , "square units")
+```
+
+_ex2-3_
+
+~~~
+# Write your program here
+newbie = float(input("Enter new video count: "))
+oldie = float (input ("Enter old video count: "))
+
+tnewbie = (3.00 * newbie)
+toldie = (2.00 * oldie)
+# this section  (${:.2f}",format) rounds the output to two decimal points and adds a dollar sign
+print ("${:.2f}".format(tnewbie + toldie))
+~~~
+### Note*
+This section of code is what formats the output to round to two decimal places and adds a dollar sign to the front of the output.
+
+`"${:.2f}".format`
