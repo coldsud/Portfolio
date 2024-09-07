@@ -93,3 +93,38 @@ print ("${:.2f}".format(tnewbie + toldie))
 This section of code is what formats the output to round to two decimal places and adds a dollar sign to the front of the output.
 
 `"${:.2f}".format`
+
+Also you can round a variable to any amount of decimal places with this below code. the number is the amount decimal places
+
+`rounded_variable = round(variable_to_round, 2)`
+
+
+**_ex2-4_**
+
+```
+# Write your program here
+
+radius = float(input("Enter sphere radius: "))
+
+diameter = (2 * radius)
+
+circumference = (2 * 3.141592653589793 * radius)
+
+surface_area = (4 * 3.141592653589793 * radius ** 2)
+
+volume = ( 4/3 * 3.141592653589793 * radius ** 3)
+
+#left these rounded values for future reference if round values are needed for these formulas
+diameter2 = round(diameter, 2)
+
+circumference2 = round(circumference, 2)
+
+surface_area2 = round(surface_area, 2)
+
+volume2 = round(volume, 2)
+
+print (diameter)
+print (circumference)
+print (surface_area)
+print (volume)
+```
