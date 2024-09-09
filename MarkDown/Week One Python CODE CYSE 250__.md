@@ -128,3 +128,58 @@ print (circumference)
 print (surface_area)
 print (volume)
 ```
+
+**_ex2-5_**
+
+### Simple code for calculating momentum
+
+```
+# Write your program here
+mass = float(input("Enter Object's Mass: "))
+velocity = float(input("Enter Object's Velocity: "))
+
+Momentum = (mass * velocity)
+
+print ("The" , mass ," kilogram Object is traveling at a Velocity of: ", velocity , "meters per seceond, which would give its Momentum to be: ", Momentum)
+```
+
+**_ex2-6_**
+
+### Incorporates code from ex2-5
+
+```
+# Write your program here
+mass = float(input("Enter Object's Mass: "))
+velocity = float(input("Enter Object's Velocity: "))
+
+Momentum = (mass * velocity)
+
+print ("The" , mass ," kilogram Object is traveling at a Velocity of: ", velocity , "meters per seceond, which would give its Momentum to be: ", Momentum)
+
+KE = ( 1/2 * mass * velocity ** 2)
+
+print ("The numerical representation of Kinetic Energy of the Object is: " , KE )
+```
+
+
+**_ex-2-7_**
+
+This excercise had issues where i needed to convert a float to an integer to not get an 0.0 error in python
+
+```
+# Write your program here
+years = float(input("Enter how many years: "))
+
+
+# this next line of code converts float to interger. 
+# The round funtion without any switches will round to the nearest integer
+yearsrnd = int(round(years))
+
+minperyr = 525600
+
+minperyrrnd = round(minperyr,0)
+
+minelapsed = (minperyrrnd * yearsrnd)
+
+print ("minutes elapased in time frame is:", minelapsed)
+```
