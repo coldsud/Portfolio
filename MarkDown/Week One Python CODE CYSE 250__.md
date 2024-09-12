@@ -1,9 +1,9 @@
 __### Week One Python CODE CYSE 250__ 
 
 
-#### chapter 1
+## chapter 1
 
-_ExO 1_ 
+## _ExO 1_ 
 
 ```# Write your code here
 
@@ -17,7 +17,7 @@ print (phone)
 ```
 
 
-_ExO 2_
+## _ExO 2_
 
 ```# Write the code here
 width = float(input ("Enter the width: "))
@@ -25,7 +25,7 @@ height = float(input("Enter the height: "))
 area = width * height
 print ("The Area is", area, "square units.")
 ```
-_Ex0 3_
+## _Ex0 3_
 
 ```# Write your code here
 width = float(input ("Enter the width: "))
@@ -33,7 +33,7 @@ height = float(input("Enter the height: "))
 area = width * height
 print ("The area of a this triangle is", area * .5, "square units.")
 ```
- _Ex0 4_
+## _Ex0 4_
 
  ```# Write your code here
 
@@ -42,7 +42,7 @@ currentrad = int(radius)
 area = 3.14 * radius ** 2
 print ("the area of a circle with a radius of",currentrad, "is", area, "square units")
 ```
-_Ex0 5_
+## _Ex0 5_
 
 ```# Write your program here
 width = float(input ("Enter the width: "))
@@ -52,7 +52,7 @@ volume = width * height * depth
 print ("The Area is", volume, "cubic units.")
 ```
 
-_ex2-1_
+## _ex2-1_
 
 Rounding formula to get an output to an exat decimal place
 
@@ -65,7 +65,7 @@ Roundnum = round(number to be rounded, to what dcimal place)
 print(rounded_number)`
 
 
-_ex2-2_
+## _ex2-2_
 
 ### Write code that will calculate the surface area of a cube
 
@@ -99,7 +99,7 @@ Also you can round a variable to any amount of decimal places with this below co
 `rounded_variable = round(variable_to_round, 2)`
 
 
-**_ex2-4_**
+## **_ex2-4_**
 
 ```
 # Write your program here
@@ -129,7 +129,7 @@ print (surface_area)
 print (volume)
 ```
 
-**_ex2-5_**
+## **_ex2-5_**
 
 ### Simple code for calculating momentum
 
@@ -143,7 +143,7 @@ Momentum = (mass * velocity)
 print ("The" , mass ," kilogram Object is traveling at a Velocity of: ", velocity , "meters per seceond, which would give its Momentum to be: ", Momentum)
 ```
 
-**_ex2-6_**
+## **_ex2-6_**
 
 ### Incorporates code from ex2-5
 
@@ -162,7 +162,7 @@ print ("The numerical representation of Kinetic Energy of the Object is: " , KE 
 ```
 
 
-**_ex-2-7_**
+## **_ex-2-7_**
 
 This excercise had issues where i needed to convert a float to an integer to not get an 0.0 error in python
 
@@ -184,7 +184,7 @@ minelapsed = (minperyrrnd * yearsrnd)
 print ("minutes elapased in time frame is:", minelapsed)
 ```
 
-**_ex2-8_**
+## **_ex2-8_**
 Add this command to your code to get it to output intergers. it will prevent output like this `4.7304e+16`
 
 >`print (int(variable))`
@@ -201,3 +201,46 @@ print ("Distance traveled: ",(int(lyty)))
 print
 ```
 
+## **_ex2-9_**
+
+```
+# Write your program here
+# Nautical miles for this is calculated by the blow code
+nm = ((60 * 90) /10000 )
+
+
+kilo= float(input("Enter Kilometers: "))
+
+anm= kilo * .54
+
+print ("Nautical Miles:" , (round(anm, 2)))
+```
+
+## **_ex2-10_**
+
+```
+# Write your program here
+hourwage = float(input("Enter hourly wage: "))
+
+reghours = float (input("Enter regular hours: "))
+
+OT = float(input("Enter overtime hours: "))
+
+finalwage = (OT * 1.5) * hourwage + (hourwage * reghours)
+
+print ("Weekly pay: $",(round(finalwage, 2)))
+```
+ ## Chapter 2 Debugging Exercise
+
+ The code had a few errors with the math and was missing a variable
+
+ ```
+ purchasePrice = float(input("Enter the purchase price as $: "))
+taxRate = int(input("Enter the tax rate as %: "))
+tax = purchasePrice * ((taxRate / 100) + 1)
+taxtotal= tax - purchasePrice
+totalOwed = tax
+print("Purchase price: ", round(purchasePrice, 2))
+print("Tax:            ", round(taxtotal, 2))
+print("Total owed:     ", totalOwed)
+```
