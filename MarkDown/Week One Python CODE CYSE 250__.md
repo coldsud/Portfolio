@@ -183,3 +183,21 @@ minelapsed = (minperyrrnd * yearsrnd)
 
 print ("minutes elapased in time frame is:", minelapsed)
 ```
+
+**_ex2-8_**
+Add this command to your code to get it to output intergers. it will prevent output like this `4.7304e+16`
+
+>`print (int(variable))`
+
+```
+# Write your program here
+years = float(input("Enter Years: "))
+
+lyt = ((3e8) * (31536000))
+
+lyty= (lyt * years)
+
+print ("Distance traveled: ",(int(lyty))) 
+print
+```
+
