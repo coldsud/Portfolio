@@ -244,3 +244,33 @@ print("Purchase price: ", round(purchasePrice, 2))
 print("Tax:            ", round(taxtotal, 2))
 print("Total owed:     ", totalOwed)
 ```
+## **_ex3-1_**
+
+```
+# Write your program here
+side1= int(input("Enter first side:"))
+
+side2= int(input("Enter second side: "))
+
+side3 = int(input("Enter third side: "))
+
+if side1 == side2 and side1 == side3:
+    print ("The triangle is equilateral")
+else:
+    print ("triangle is not equilateral")
+```
+
+## **_ex3-2_**
+
+```
+side1 = int(input("Enter the first side: "))
+
+side2 = int(input("Enter the second side: "))
+
+side3 = int(input("Enter the third side: "))
+
+if ((side1**2)+(side2**2)) == (side3**2):
+    print ("The triangle is a right triangle")
+else:
+    print ("The triangle is not a right triangle")
+```
