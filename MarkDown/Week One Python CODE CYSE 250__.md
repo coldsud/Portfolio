@@ -274,3 +274,37 @@ if ((side1**2)+(side2**2)) == (side3**2):
 else:
     print ("The triangle is not a right triangle")
 ```
+
+## **_ex3-3_**
+
+```
+# Get the smaller and larger numbers from the user
+smaller = int(input("Enter the smaller number: "))
+larger = int(input("Enter the larger number: "))
+
+# Initialize count and bounds
+count = 0
+low = smaller
+high = larger
+
+# The computer now tries to guess the number
+while low <= high:
+    guess = (low + high) // 2  # Guess the middle of the current range
+    count += 1
+    print(f"{low} {high}")
+    print(f"Your number is {guess}")
+
+    user_input = input("Enter =, <, or >: ")  # Get feedback from the user
+
+    if user_input == "=":
+        print(f"Hooray, I've got it in {count} tries!")
+        break
+    elif user_input == "<":
+        high = guess - 1  # Adjust the upper bound
+    elif user_input == ">":
+        low = guess + 1  # Adjust the lower bound
+
+# If the loop ends without finding the number, print cheating message
+if low > high:
+    print("I'm out of guesses, and you cheated!")
+    ```
