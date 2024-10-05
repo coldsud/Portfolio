@@ -433,3 +433,73 @@ if allowbounce > 0:
     
     print(f"Total distance traveled by the ball: {tdistance:.6f}")
 ```
+
+## **_ex3-5_**
+
+```
+init = (float(input("Enter the initial number of organisms: ")))
+
+rgro = (float(input("Enter the rate of growth [a real number > 1]: ")))
+
+hours = (float(input("Enter the number of hours to achieve the rate of growth: ")))
+
+tours = (float(input("Enter the total hours of growth: ")))
+
+import math
+
+tpop = math.floor(init * (rgro**(tours / hours)))
+
+print (f"After {tours} hours, The total population is : {tpop}")
+```
+
+
+## **_ex3-6_**
+
+```
+iters = int(input("Enter the number of iterations: "))
+
+rpie = 0
+
+for n in range(iters):
+
+    rpie += ((-1) ** n) / (2 * n + 1)
+
+rpie *= 4
+
+print(f"The approximation of pi is : {rpie}")
+```
+
+## **_ex3-7_**
+
+```
+start = float(input("Enter the starting salary : "))
+
+incr = int(input("Enter the annual % increase : "))
+
+years = int(input("Enter the number of years : "))
+
+pincr= incr / 100
+
+rsal= start
+
+for n in range(1, years + 1):
+
+    print(f"Year {n}: Salary: {rsal:.2f}")
+
+    rsal += rsal * pincr
+```
+
+## **_ex3-8_**
+```
+small = int(input("Enter the smaller number : "))
+
+large = int(input("Enter the larger number : "))
+
+def gcd(small, large):
+    while large != 0:
+        small, large = large, small % large
+    return small
+
+print(f"The greatest common divisor is {gcd(small, large):.0f}")
+```
+
