@@ -503,3 +503,113 @@ def gcd(small, large):
 print(f"The greatest common divisor is {gcd(small, large):.0f}")
 ```
 
+## **_ex3-9_**
+
+```
+total = 0
+
+count = 0
+
+while True:
+
+    usernum = (input("Enter a number or press Enter to quit: "))
+
+    if usernum == "":
+
+        break
+
+    nu1 = float(usernum)
+
+    total += nu1
+
+    count += 1
+
+average = total/count
+
+print("The sum is " , total)
+
+print("The average is " , average)
+```
+
+## **_ex3-10_**
+```
+def tidbit_credit_plan(purchase_price):
+    # Credit plan details
+    down_payment_rate = 10  # 10% down payment
+    annual_interest_rate = 12  # 12% annual interest rate
+    monthly_payment_rate = 5  # 5% of the listed purchase price
+
+    # Calculate initial values
+    balance = purchase_price * (1 - down_payment_rate / 100)
+    monthly_payment = purchase_price * (monthly_payment_rate / 100)
+
+    # Print header for table
+    print("{:<5} {:<20} {:<20} {:<20} {:<15} {:<20}".format(
+        "Month", "Starting Balance", "Interest to Pay", "Principal to Pay", "Payment", "Ending Balance"
+    ))
+
+    # Calculate and display details for each month
+    month = 1
+    while balance > 0:
+        interest = balance * (annual_interest_rate / 100) / 12
+        principal = monthly_payment - interest
+        payment = min(monthly_payment, balance)
+        ending_balance = balance - payment
+
+        # Print the details for the month
+        print("{:<5} {:<20.2f} {:<20.2f} {:<20.2f} {:<15.2f} {:<20.2f}".format(
+            month, balance, interest, principal, payment, ending_balance
+        ))
+
+        # Update balance and month
+        balance = ending_balance
+        month += 1
+
+# This will run provide the table now
+purchase_price = float(input("Enter the purchase price: "))
+tidbit_credit_plan(purchase_price)
+```
+## **_ex3-11_**
+
+```
+import random
+
+def lucky_sevens(starting_amount):
+    pot = starting_amount
+    rolls = 0
+    max_pot = pot
+    max_roll = 0
+
+    while pot > 0:
+        rolls += 1
+        die1 = random.randint(1, 6)
+        die2 = random.randint(1, 6)
+        if die1 + die2 == 7:
+            pot += 4
+        else:
+            pot -= 1.0
+
+        if pot > max_pot:
+            max_pot = pot
+            max_roll = rolls
+
+    print(f"You are broke after {rolls} rolls.")
+    print(f"You should have quit after {max_roll} rolls when you had ${max_pot}.")
+
+
+starting_amount = float(input("How many dollars do you have? "))
+lucky_sevens(starting_amount)
+```
+
+## **_Chapter 3 Debugging Exercise_**
+
+```
+count = 1
+total = 0
+while count <= 10:
+    score = int(input("Enter test score number " + str(count) + ": "))
+    total = total + score
+    count = count + 1
+average = total / 10
+print("The average test score is", average)
+```
