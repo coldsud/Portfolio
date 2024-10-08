@@ -551,21 +551,32 @@ def tidbit_credit_plan(purchase_price):
     # Calculate and display details for each month
     month = 1
     while balance > 0:
-        interest = balance * (annual_interest_rate / 100) / 12
-        principal = monthly_payment - interest
-        payment = min(monthly_payment, balance)
-        ending_balance = balance - payment
+        starting_balance = balance
+
+        # Check if monthly payment is greater than the remaining balance
+        if monthly_payment > balance:
+            payment = balance
+            interest = 0
+        else:
+            interest = balance * (annual_interest_rate / 100) / 12
+            payment = monthly_payment
+
+        # Calculate principal and payment details
+        principal = payment - interest
+        
+        # Calculate the ending balance
+        ending_balance = starting_balance - payment
 
         # Print the details for the month
         print("{:<5} {:<20.2f} {:<20.2f} {:<20.2f} {:<15.2f} {:<20.2f}".format(
-            month, balance, interest, principal, payment, ending_balance
+            month, starting_balance, interest, principal, payment, ending_balance
         ))
 
         # Update balance and month
         balance = ending_balance
         month += 1
 
-# This will run provide the table now
+# Get the purchase price and run the credit plan
 purchase_price = float(input("Enter the purchase price: "))
 tidbit_credit_plan(purchase_price)
 ```

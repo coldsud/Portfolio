@@ -1,25 +1,46 @@
-number = int(input("enter grade number:"))
-if number >= 90 and number <= 100:
-    grade = "A"
-elif number >= 80 and number <= 89:
-    grade = "B"
-elif number >= 70 and number <= 79:
-    grade = "C"
-elif number > 100 or number < 0:
-    grade = "Error: Grade must be between 100 and 0"
-else:
-    grade= "F"
-    
-print ("The letter grade is:", grade)
+def tidbit_credit_plan(purchase_price):
+    # Credit plan details
+    down_payment_rate = 10  # 10% down payment
+    annual_interest_rate = 12  # 12% annual interest rate
+    monthly_payment_rate = 5  # 5% of the listed purchase price
 
-thesum= 0
-for count in range (1,10):
-    thesum += count
-    print (thesum)
+    # Calculate initial values
+    balance = purchase_price * (1 - down_payment_rate / 100)
+    monthly_payment = purchase_price * (monthly_payment_rate / 100)
 
-thesum = 0
-count = 1
-while count <=10:
-    thesum += count
-    count += 1
-    print (thesum)
+    # Print header for table
+    print("{:<5} {:<20} {:<20} {:<20} {:<15} {:<20}".format(
+        "Month", "Starting Balance", "Interest to Pay", "Principal to Pay", "Payment", "Ending Balance"
+    ))
+
+    # Calculate and display details for each month
+    month = 1
+    while balance > 0:
+        starting_balance = balance
+
+        # Check if monthly payment is greater than the remaining balance
+        if monthly_payment > balance:
+            payment = balance
+            interest = 0
+        else:
+            interest = balance * (annual_interest_rate / 100) / 12
+            payment = monthly_payment
+
+        # Calculate principal and payment details
+        principal = payment - interest
+        
+        # Calculate the ending balance
+        ending_balance = starting_balance - payment
+
+        # Print the details for the month
+        print("{:<5} {:<20.2f} {:<20.2f} {:<20.2f} {:<15.2f} {:<20.2f}".format(
+            month, starting_balance, interest, principal, payment, ending_balance
+        ))
+
+        # Update balance and month
+        balance = ending_balance
+        month += 1
+
+# Get the purchase price and run the credit plan
+purchase_price = float(input("Enter the purchase price: "))
+tidbit_credit_plan(purchase_price)
