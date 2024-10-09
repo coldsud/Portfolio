@@ -1,46 +1,42 @@
-def tidbit_credit_plan(purchase_price):
-    # Credit plan details
-    down_payment_rate = 10  # 10% down payment
-    annual_interest_rate = 12  # 12% annual interest rate
-    monthly_payment_rate = 5  # 5% of the listed purchase price
+import os
 
-    # Calculate initial values
-    balance = purchase_price * (1 - down_payment_rate / 100)
-    monthly_payment = purchase_price * (monthly_payment_rate / 100)
+# Define the path to your docs folder
+docs_folder = r'C:\Users\Huston\Documents\Portfolio\my-wiki\docs'
 
-    # Print header for table
-    print("{:<5} {:<20} {:<20} {:<20} {:<15} {:<20}".format(
-        "Month", "Starting Balance", "Interest to Pay", "Principal to Pay", "Payment", "Ending Balance"
-    ))
+# Function to create index.md file and embed code files as markdown code blocks
+def create_index(folder):
+    index_file_path = os.path.join(folder, 'index.md')
 
-    # Calculate and display details for each month
-    month = 1
-    while balance > 0:
-        starting_balance = balance
+    # Open (or create) index.md in write mode
+    with open(index_file_path, 'w') as index_file:
+        # Write the header
+        folder_name = os.path.basename(folder).capitalize()
+        index_file.write(f"# {folder_name}\n\n")
+        index_file.write(f"Welcome to the {folder_name} section. Here are the available scripts:\n\n")
 
-        # Check if monthly payment is greater than the remaining balance
-        if monthly_payment > balance:
-            payment = balance
-            interest = 0
-        else:
-            interest = balance * (annual_interest_rate / 100) / 12
-            payment = monthly_payment
+        # Loop through all files in the folder
+        for file in os.listdir(folder):
+            if file.endswith('.md') and file != 'index.md':  # Markdown files, excluding index.md
+                index_file.write(f"- [{file.replace('.md', '')}]({file})\n")
+            elif file.endswith('.py') or file.endswith('.sh'):  # Python or Bash files
+                # Add the script file with a code block in Markdown
+                index_file.write(f"\n## {file}\n\n")
+                index_file.write("```" + ("python" if file.endswith('.py') else "bash") + "\n")
 
-        # Calculate principal and payment details
-        principal = payment - interest
-        
-        # Calculate the ending balance
-        ending_balance = starting_balance - payment
+                # Read the script content
+                with open(os.path.join(folder, file), 'r') as script_file:
+                    index_file.write(script_file.read())
 
-        # Print the details for the month
-        print("{:<5} {:<20.2f} {:<20.2f} {:<20.2f} {:<15.2f} {:<20.2f}".format(
-            month, starting_balance, interest, principal, payment, ending_balance
-        ))
+                index_file.write("\n```\n")
 
-        # Update balance and month
-        balance = ending_balance
-        month += 1
+        print(f"Generated {index_file_path}")
 
-# Get the purchase price and run the credit plan
-purchase_price = float(input("Enter the purchase price: "))
-tidbit_credit_plan(purchase_price)
+# Loop through all folders in the docs directory
+for folder in os.listdir(docs_folder):
+    folder_path = os.path.join(docs_folder, folder)
+    
+    # Check if it's a directory
+    if os.path.isdir(folder_path):
+        create_index(folder_path)
+    else:
+        print(f"{folder_path} is not a folder.")

