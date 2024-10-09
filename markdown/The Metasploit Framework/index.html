@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>The Metasploit Framework - My Portfolio Wiki</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">My Portfolio Wiki</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Coding Language</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../python/" class="dropdown-item">Python</a>
+</li>
+                                    
+<li>
+    <a href="../../bash/" class="dropdown-item">Bash</a>
+</li>
+                                    
+<li>
+    <a href="../" class="dropdown-item">Markdown</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h3 id="the-metasploit-framework">The Metasploit Framework</h3>
+<p>The Metasploit Framework is a very powerful tool for penetration testing. It is a text-based, menu-driven program that comes in both a Commercial Pro and an open source or Community version. The Community edition is included with Kali and can also be installed on other systems. </p>
+<p>Metasploit can be launched from the Kali menus under the Favorites or Exploitation Tools sub menus or by typing msfconsole at the command line.</p>
+<p><code>msfconsole</code></p>
+<p>Metasploit menu</p>
+<p>Metasploit comes with hundreds of exploits, payloads and additional resources to assist during a penetration test.</p>
+<p>Before diving into the exploits and other resources, let's take a brief tour of the system.</p>
+<p>To begin, enter help and scroll up to review all the available options within Metasploit.</p>
+<p>Metasploit help</p>
+<pre><code>One command to note is msfupdate. This command is not found in the help menu and will not work in this lab environment, but should be run from time to time on a live installation in order to keep Metasploit up-to-date with the latest exploits and resources.
+</code></pre>
+<p>The Search command is also a powerful tool in Metasploit. You can use it to look for anything within the Metasploit framework. The Search command offers options such as name: and type: to help narrow down your search.</p>
+<p>To use search, type search name:Apple type:exploit for potential Apple exploits.</p>
+<p>search name:Apple type:exploit</p>
+<p>Metasploit search</p>
+<p>A number of potential exploits are returned, note:</p>
+<pre><code>Exploits and resources in Metasploit are organized in a folder structure.
+The Rank column rates exploits from: excellent, great, good, normal to average.
+
+Generally, one would want to use a higher ranked exploit during a pen test to achieve a higher rate of success. It is also worth noting that many of these exploits are old and thus would only work against older and unpatched systems.
+</code></pre>
+<p>Scroll to the first entry in the Search results, which is an Apple browser exploit, ranked: good.</p>
+<p>Let's find out more about this exploit with the command info.</p>
+<pre><code>Info is a powerful command that returns important information about each exploit or module, such as:
+
+    Name
+    Platform
+    Available targets
+    Basic options - required options you will need to know in order to set up and use the exploit.
+</code></pre>
+<p>Type info exploit/apple_ios/browser/safari_libtiff for more info on this exploit.</p>
+<p>info exploit/apple_ios/browser/safari_libtiff</p>
+<p>Metasploit info</p>
+<pre><code>You can also use Tab completion to finish commands without typing each letter. The info command below could be typed as follows: info ex[tab]ap[tab]br[tab]sa[tab]. Metasploit fully supports tab given the underlying directory structure it uses.
+</code></pre>
+<h3 id="using-attack-modules-in-metasploit">Using Attack Modules in Metasploit</h3>
+<p>Metasploit contains hundreds of exploits and attack auxiliary tools available to you with the use command. Next, you are going to attempt to attack the FTP server on the target using the ftp_login auxiliary tool.</p>
+<pre><code>Continuing in the Terminal of the PT1-Kali virtual machine, type use auxiliary/scanner/ftp/ftp_login to perform an ftp login attack.
+
+use auxiliary/scanner/ftp/ftp_login
+
+Metasploit use ftp_login
+
+Type show options to show the available options.
+
+show options
+
+Metasploit show options
+
+There are a number of possible options and most aren't required. You can change the value of an option with the set command.
+
+How many options of the ftp_login module are required?  (Answer with a number not the word).
+</code></pre>
+<p>Next, you will be using small dictionaries or files of bad usernames and passwords to see if we can gave access to the FTP service. These will be used as options for this scanner.</p>
+<p>Go to the Desktop and Double click the Student-Resource CD icon (you may need to minimize the Terminal) and open File Manager. This mounts the CD and makes the files available. Then close File Manager and return to your open Terminal window.</p>
+<p>Type set PASS_FILE /media/cdrom0/Lab14/top13-bad-passwords.txt to set the path to the password list you will use.</p>
+<p>set PASS_FILE /media/cdrom0/Lab14/top13-bad-passwords.txt</p>
+<p>Metasploit set PASS_FILE</p>
+<p>Type set USER_FILE /media/cdrom0/Lab14/top13-bad-usernames.txt to set the path to the username list you will use.</p>
+<p>set USER_FILE /media/cdrom0/Lab14/top13-bad-usernames.txt</p>
+<p>Metasploit set USER_FILE</p>
+<p>The USER_FILE and PASS_FILE are lists of usernames and passwords listed one to a line. There is also an option to use a USERPASS_FILE which contains pairs of usernames and passwords listed are one to a line.</p>
+<p>Type set RHOSTS 10.1.16.9 to set the IP address of the target.</p>
+<p>set RHOSTS 10.1.16.9</p>
+<p>Metasploit set RHOSTS</p>
+<p>Type show options again to see the available options.</p>
+<p>show options</p>
+<p>Metasploit show options set</p>
+<p>Finally, type run to execute the attack.</p>
+<p>run</p>
+<p>Metasploit run 1</p>
+<p>Metasploit run 2</p>
+<p>Metasploit run 3</p>
+<p>How many successful logins were found on the FTP server? (Note: Type the number not the word).</p>
+<p>Repeat this exercise using at least one of the other scanners mentioned in the knowledge box below. They all work in similar ways as Metasploit modules. You will start with the use command like in step 2 above, then set the options as with this example, then finally run the module.</p>
+<pre><code>In addtion to the ftp_login scanner, Metasploit comes with scanners for SSH, Telnet, SMB, and SMTP.
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

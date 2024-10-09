@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Enumeration tecniques - My Portfolio Wiki</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">My Portfolio Wiki</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Coding Language</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../python/" class="dropdown-item">Python</a>
+</li>
+                                    
+<li>
+    <a href="../../bash/" class="dropdown-item">Bash</a>
+</li>
+                                    
+<li>
+    <a href="../" class="dropdown-item">Markdown</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            
+            
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h3 id="enumerating-hosts">Enumerating Hosts</h3>
+<p>During the information gathering phase you will move from passive reconnaissance to active reconnaissance. Here we use the information we gathered to determine our attack vector by starting at the top of the list working our way down. That means retrieving a list of open ports, vulnerable services running on those ports, web directories, or the type of information that can be exposed by the service such as a list of users.</p>
+<p>When enumerating a host, we will determine the best possible entry point. Which means you will be going over your scans in detail line by line to find the lowest hanging fruit. </p>
+<h4 id="run-a-nmap-scan-to-identify-hosts-on-our-network">Run a nmap scan to identify hosts on our network.</h4>
+<p><code>nmap -O 10.1.16.0/24 -oX enum.xml &amp;&amp; xsltproc enum.xml -o enum.html</code></p>
+<pre><code>We are using the -O option to detect the Operating Systems of the hosts on our network.
+</code></pre>
+<h4 id="open-enumhtml-in-our-firefox-browser-to-view-our-scan-report">Open enum.html in our firefox browser to view our scan report.</h4>
+<p><code>firefox enum.html</code></p>
+<h3 id="enumerating-ports">Enumerating Ports</h3>
+<p>We will be determining what versions of the services that are running on our host we previously scanned to identify potential exploits. Our result from our last scan shows us that the host 10.1.16.9 has <strong><em>more</em></strong> open ports than any other host on the network.</p>
+<p>Run another nmap scan to determine the versions of the services on all 65,535 ports open on this machine. Then you will output the scan into an .xml file using the -oX option to create a detailed list.</p>
+<p><code>nmap -sV -p- 10.1.16.9 -oX enum2.xml</code></p>
+<p>Convert your .xml file to .html using xsltproc</p>
+<p><code>xsltproc enum2.xml -o enum2.html</code></p>
+<p>Open enum2.html in our firefox browser to view our scan report.</p>
+<p><code>firefox enum2.html</code></p>
+<h4 id="what-to-do-on-ports">what to do on ports</h4>
+<p>Run a vulnerability script scan on port 21.</p>
+<p>nmap --script=vuln 10.1.16.9 -p 21</p>
+<h3 id="enumerating-web-directories">Enumerating Web Directories</h3>
+<p>There are many tools we can use to enumerate web directories; in this section we will be using Dirb and Nikto to scan our web server.</p>
+<p>Dirb is a web content scanner that launches a dictionary-based attack to identify web directories using a dictionary file.</p>
+<pre><code>You can view the web directory files that can be used by dirb by navigating to /usr/share/wordlists/dirb/.
+
+Type dirb, then press ENTER in your terminal window to see a list of options and command usage examples.
+
+
+    After typing dirb Scroll up and down in your terminal to see all of the options.
+
+Using dirb, run a scan on the metasploitable web server.
+
+dirb http://10.1.16.9/
+
+
+    You can scroll up and down in the terminal to view the entire output of our scan. When an accessible directory is found it will be noted with ==&gt;
+
+Our output dirb identified 41,526 files and 89 directories. We can view a directory by typing the webservers directory in the address bar of our browser.
+
+Open your firefox browser in the top left-hand corner.
+
+In the address bar, navigate to the second directory discovered by dirb.
+
+http://10.1.16.9/dvwa/
+
+
+Nikto is a web server vulnerability scanning tool. Nikto will return any cookies received from the web server while attempting to detect files, software, and directories running on the web server.
+
+Type nikto, then press ENTER in your terminal window to see a list of options and command usage examples.
+
+
+In your terminal run a Nikto scan on the metasploitable2 host.
+
+nikto -h 10.1.16.9
+
+
+    When a directory is identified our output will show Directory indexing found. or directory found to the right of the directory discovered.
+
+Nikto discovered numerous directories and even vulnerabilities on this web server. You can navigate to each directory using your web browser.
+    /doc/
+    /test/
+    /icons/
+    /phpMyAdmin/
+
+Example
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
