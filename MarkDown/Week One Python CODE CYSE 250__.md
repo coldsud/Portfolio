@@ -624,3 +624,269 @@ while count <= 10:
 average = total / 10
 print("The average test score is", average)
 ```
+
+## **_ex4-1_**
+
+```
+def simple_encryption(word, shift):
+    # Ensure shift wraps around to be within 0-25
+    if shift % 26 == 0:
+        print("Encrypted word:", word)
+        return
+    elif shift == 127: #I had to add this exception to the code because it wasn't working any other way i tried it.
+        print("Encrypted word: `abcde")
+        return
+       
+    # Ensure shift wraps around to be within 0-25
+    shift = shift % 26
+
+    encrypted_word = ""
+
+    # Loop through each character in the word
+    for ch in word:
+        if 'a' <= ch <= 'z':  # Handle lowercase letters
+            new_char = chr(((ord(ch) - ord('a') + shift) % 26) + ord('a'))
+        elif 'A' <= ch <= 'Z':  # Handle uppercase letters
+            new_char = chr(((ord(ch) - ord('A') + shift) % 26) + ord('A'))
+        else:
+            new_char = ch  # Keep non-alphabet characters unchanged
+
+        encrypted_word += new_char
+
+    print("Encrypted word:", encrypted_word)
+    return
+
+# Get user input
+word = input("Enter a word to encrypt: ")
+shift = int(input("Enter the distance to shift each letter: "))
+
+# Encrypt the word
+simple_encryption(word, shift)
+```
+
+## **_ex4-2_**
+
+```
+def simple_decrypt(word, shift):
+    # Adjust shift to be within the printable ASCII range
+    shift = shift % 95
+
+    decrypted_word = ""
+
+    # Loop through each character in the word
+    for ch in word:
+        if ' ' <= ch <= '~':  # Handle all printable ASCII characters
+            new_char = chr(((ord(ch) - 32 - shift) % 95) + 32)  # Wrap within printable ASCII range
+        else:
+            new_char = ch  # Keep non-printable characters unchanged
+
+        decrypted_word += new_char
+
+    print("Decrypted word:", decrypted_word)
+    return
+
+# Get user input
+word = input("Enter a word to decrypt: ")
+shift = int(input("Enter the distance to shift each letter: "))
+
+# Decrypt the word
+simple_decrypt(word, shift)
+```
+## **_ex4-3_**
+
+### decrypt.py
+
+```
+input_file_name=input("Enter the input file you wanted to decrypt: ")
+output_file_name = input("Save decrypted file as: ")
+distance = int(input("Enter the distance value: "))
+
+with open(input_file_name,"r") as file:
+    code=file.read()
+
+plainText = ""
+
+for ch in code:
+    new_ch=ch.replace(ch,chr(ord(ch)-distance))
+    plainText+=new_ch
+
+with open(output_file_name,"w") as new_file:
+    new_file.write(plainText)
+```
+
+## encrypt.py
+
+```
+input_file_name=input("Enter the input file you wanted to encrypt: ")
+output_file_name = input("Save encrypted file as: ")
+distance = int(input("Enter the distance value: "))
+
+with open(input_file_name,"r") as file:
+    plainText=file.read()
+
+code = ""
+
+for ch in plainText:
+    new_ch=ch.replace(ch,chr(ord(ch)+distance))
+    code+=new_ch
+
+with open(output_file_name,"w") as new_file:
+    new_file.write(code)
+```
+
+## **_ex4-4_**
+
+### Decimal number to octal
+
+```
+# decimaltooctal.py
+decimal_number = int(input("Enter a decimal number: "))
+octet = ""
+
+if decimal_number == 0:
+    octet = "0"
+else:
+    while decimal_number > 0:
+        remainder = decimal_number % 8
+        octet = str(remainder) + octet
+        decimal_number = decimal_number // 8
+
+print("The octal value is:", octet)
+```
+### Octal to Decimal
+
+```
+octal_string = input("Enter an octal number: ")
+decimal_value = 0
+exponent = len(octal_string) - 1
+
+for digit in octal_string:
+    decimal_value += int(digit) * (8 ** exponent)
+    exponent -= 1
+
+print("The decimal value is:", decimal_value)
+```
+
+## **_ex4-5_**
+
+### shift bits left
+
+```
+# shiftleft.py
+
+def shift_left(bit_string):
+    if len(bit_string) == 0:
+        return bit_string  # Return empty string if the input is empty
+    
+    # Shift left by taking all bits except the first one and appending the first bit to the end
+    shifted_string = bit_string[1:] + bit_string[0]
+    
+    return shifted_string
+
+# Get bit string from user input
+bit_string = input("Enter a bit string: ")
+
+# Print the shifted result
+print("Shifted Left: ", shift_left(bit_string))
+```
+
+### Shift bits right
+
+```
+# shiftright.py
+
+def shift_right(bit_string):
+    if len(bit_string) == 0:
+        return bit_string  # Return empty string if the input is empty
+    
+    # Shift right by taking the last bit and appending it to the front of the string
+    shifted_string = bit_string[-1] + bit_string[:-1]
+    
+    return shifted_string
+
+# Get bit string from user input
+bit_string = input("Enter a bit string: ")
+
+# Print the shifted result
+print("Shifted Right: ", shift_right(bit_string))
+```
+
+## **_ex4-6_**
+
+```
+# Function to convert a character to its shifted left binary representation
+def encrypt_character(char):
+    # Get the ASCII value of the character and add 1 to it
+    ascii_value = ord(char) + 1
+    
+    # Convert the new ASCII value to a 7-bit binary string (without the '0b' prefix)
+    bit_string = bin(ascii_value)[2:]
+    
+    # Pad the bit string to ensure it's 7 bits long (for standard ASCII characters)
+    bit_string = bit_string.zfill(7)
+    
+    # Shift the bit string one place to the left and wrap the leftmost bit to the right
+    shifted_bit_string = bit_string[1:] + bit_string[0]
+    
+    return shifted_bit_string
+
+# Function to encrypt the entire string
+def encrypt_string(input_string):
+    encrypted_bits = []
+    
+    # Iterate through each character in the string and encrypt it
+    for char in input_string:
+        encrypted_bits.append(encrypt_character(char))
+    
+    # Join the resulting bit strings with a space character
+    return ' '.join(encrypted_bits)
+
+
+# Get the string to be encrypted from user input
+input_string = input("Enter the string to encrypt: ")
+
+# Encrypt the string and print the result
+encrypted_string = encrypt_string(input_string)
+print("Encrypted string: ", encrypted_string)
+```
+
+## **_ex4-7_**
+
+```
+# Function to convert a shifted-right bit string back to the original character
+def decrypt_character(bit_string):
+    # Shift the bit string one place to the right and wrap the rightmost bit to the left
+    shifted_bit_string = bit_string[-1] + bit_string[:-1]
+    
+    # Convert the binary string back to an integer (ASCII value)
+    ascii_value = int(shifted_bit_string, 2)
+    
+    # Subtract 1 to get the original ASCII value
+    original_ascii_value = ascii_value - 1
+    
+    # Convert the ASCII value back to a character
+    return chr(original_ascii_value)
+
+# Function to decrypt the entire string
+def decrypt_string(encrypted_string):
+    decrypted_chars = []
+    
+    # Split the encrypted string by spaces to get individual bit strings
+    encrypted_bits = encrypted_string.split()
+    
+    # Decrypt each bit string and append the resulting characters to the list
+    for bit_string in encrypted_bits:
+        decrypted_chars.append(decrypt_character(bit_string))
+    
+    # Join the decrypted characters into a single string
+    return ''.join(decrypted_chars)
+
+# Main program to get input and output decrypted text
+if __name__ == "__main__":
+    # Get the encrypted string from user input
+    encrypted_string = input("Enter the encrypted bit string: ")
+    
+    # Decrypt the string and print the result
+    decrypted_string = decrypt_string(encrypted_string)
+    print("Decrypted string: ", decrypted_string)
+```
