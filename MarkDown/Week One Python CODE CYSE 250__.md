@@ -890,3 +890,70 @@ if __name__ == "__main__":
     decrypted_string = decrypt_string(encrypted_string)
     print("Decrypted string: ", decrypted_string)
 ```
+
+## **_ex4-8_**
+
+```
+# Enter names of files to read and write.
+f2r = input("Input file to read from: ")
+f2w = input("Input file to write to:")
+
+# Open both files, read from one and write to the other
+f = open(f2r, 'r')
+f2 = open (f2w, 'w')
+text=f.read()
+f2.write (text)
+
+# Must close both files when operations with file are complete.
+f.close()
+f2.close()
+```
+
+## **_ex4-9_**
+
+```
+# Enter names of files to read and write.
+f2r = input("Input file to read from: ")
+f2w = input("Input file to write to:")
+
+# Open both files, read from one and write to the other
+f = open(f2w, 'r')
+f2 = open(f2w, 'w')
+line_number = 1
+for line in f:
+    f2.write(f"{line_number}: {line}")
+    line_number += 1
+
+# Must close both files when operations with file are complete.
+f.close()
+f2.close()
+```
+
+## **_ex4-10_**
+
+```
+# Enter names of files to read and write.
+f2r = input("Input file to read from: ")
+f2w = input("Input file to write to:" )
+
+# Open the input files
+f = open(f2r, 'r')
+f2 = open(f2w, 'r')
+
+# Read each pair of lines and compare them
+while True:
+    line1 = f.readline()
+    line2 = f2.readline()
+    if line1 == "" and line2 == "":  # Ends of both files
+        print("Yes")
+        break
+    elif line1 != line2:
+        print("No")
+        print(line1)
+        print(line2)
+        break
+
+# Must close both files when operations with file are complete.
+f.close()
+f2.close()
+```
