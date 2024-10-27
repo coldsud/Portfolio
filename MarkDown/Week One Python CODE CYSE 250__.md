@@ -957,3 +957,51 @@ while True:
 f.close()
 f2.close()
 ```
+
+## **_ex5-2_**
+
+### Your Tasks
+
+**Write a program in the file navigate.py that allows the user to navigate the lines of text in a file. The program should prompt the user for a filename and input the lines of text into a list. The program then enters a loop in which it prints the number of lines in the file and prompts the user for a line number. Actual line numbers range from 1 to the number of lines in the file. If the input is 0, the program quits. Otherwise, the program prints the line associated with that number. (LO: 5.1)**
+
+```
+# Write your program here
+file1 = input("Please enter file name: ")
+with open(file1, "r") as tfile:
+    lines = tfile.readlines()
+
+# Display total line count
+print(f"File contains {len(lines)} lines")
+
+# Main loop for selecting line number
+while True:
+    try:
+        num = int(input("Specify line number (0 to exit): "))
+        if num == 0:
+            break
+        elif 1 <= num <= len(lines):
+            print(f"{num}: {lines[num - 1].strip()}")
+        else:
+            print(f"Line number must be between 1 and {len(lines)}")
+    except ValueError:
+        print("Enter a valid integer.")
+```
+
+
+## **_ex5-7_**
+
+### Your Tasks
+
+**Write a program in the file unique.py that inputs a text file. The program should print the unique words in the file in alphabetical order. (LO: 5.1)**
+
+```
+filename = input("Enter the input file name: ")  # Read the file name
+
+with open(filename, 'r') as tfile:  # Open file in read mode using 'with'
+    file_contents = tfile.read()  # Read text from file
+
+words = file_contents.split()  # Split text into words
+awords = sorted(set(words))  # Create a sorted list of unique words
+
+print(" ".join(awords))  # Join and print sorted words on one line
+```
