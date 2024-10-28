@@ -1,5 +1,5 @@
 title: "My Portfolio Wiki"
 description: "Documentation site for projects and resources"
-theme: jekyll-theme-slate
+theme: jekyll-theme-modernist
 url: "https://coldsud.github.io"
 baseurl: "/Portfolio"  # Only include if your repository is not your username.github.io repo
