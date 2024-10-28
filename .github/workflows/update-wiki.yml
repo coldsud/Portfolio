@@ -3,7 +3,7 @@ name: Update Wiki from Portfolio
 on:
   push:
     branches:
-      - main  # Change this if your primary branch has a different name
+      - main  # or the branch you're working on
 
 jobs:
   update-wiki:
@@ -31,7 +31,7 @@ jobs:
           rsync -av --delete --exclude='.git' ./* wiki/
           cd wiki
           git add .
-          git commit -m "Update wiki content from Portfolio"
+          git commit -m "Sync Portfolio content to Wiki"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
