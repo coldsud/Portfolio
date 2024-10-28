@@ -1,0 +1,50 @@
+name: Update Folder Overviews
+
+on:
+  push:
+    paths:
+      - 'AutoRecon/*'
+      - 'bash/*'
+      - 'MarkDown/*'
+      - 'python/*'
+
+jobs:
+  update-overviews:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Generate Overview Files
+        run: |
+          # Define the folders we want to create overview files for
+          folders=("AutoRecon" "bash" "MarkDown" "python" "my-wiki")
+
+          # Loop through each folder and generate an overview file
+          for folder in "${folders[@]}"; do
+            overview_file="$folder/${folder}-Overview.md"
+            echo "# ${folder^} Overview" > "$overview_file"
+            echo "" >> "$overview_file"
+            echo "This section contains various resources and files for $folder." >> "$overview_file"
+            echo "" >> "$overview_file"
+            echo "## Files" >> "$overview_file"
+
+            # List each file in the folder and add it to the overview
+            for file in "$folder"/*; do
+              filename=$(basename "$file")
+              if [[ "$filename" != "${folder}-Overview.md" ]]; then
+                echo "- [$filename]($filename) - Description for $filename" >> "$overview_file"
+              fi
+            done
+          done
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "[email protected]"
+          git add AutoRecon/AutoRecon-Overview.md bash/bash-Overview.md MarkDown/MarkDown-Overview.md python/python-Overview.md my-wiki/my-wiki-Overview.md
+          git commit -m "Automated update of overview files"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
