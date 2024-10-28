@@ -3,10 +3,10 @@ name: Update Wiki from Portfolio
 on:
   push:
     branches:
-      - main  # or the branch you're working on
+      - main  # Adjust if your primary branch is different
 
 jobs:
-  update-wiki:
+  sync-wiki:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,12 +26,26 @@ jobs:
         run: |
           git clone https://github.com/coldsud/Portfolio.wiki.git wiki
 
-      - name: Sync Portfolio Content to Wiki
+      - name: Generate Folder Indexes
         run: |
-          rsync -av --delete --exclude='.git' ./* wiki/
+          # Create index pages for each folder
+          for dir in */ ; do
+            folder_name=$(basename "$dir")
+            echo "# $folder_name" > "wiki/$folder_name.md"
+            for file in "$dir"/*.md; do
+              if [ -f "$file" ]; then
+                file_name=$(basename "$file" .md)
+                echo "- [$file_name]($folder_name-$file_name)" >> "wiki/$folder_name.md"
+                cp "$file" "wiki/$folder_name-$file_name.md"
+              fi
+            done
+          done
+
+      - name: Commit and Push to Wiki
+        run: |
           cd wiki
           git add .
-          git commit -m "Sync Portfolio content to Wiki"
+          git commit -m "Sync Portfolio content to Wiki with folder structure"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
