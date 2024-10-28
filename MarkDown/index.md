@@ -1,34 +1,34 @@
-# Markdown Resources Overview
+# Markdown Resources
 
-This section contains various Markdown files related to pentesting tools, enumeration techniques, and other resources.
+This section includes guides, notes, and examples related to Markdown and other tools.
 
-## Files
+## Contents
 
-- [Aircrack-ng Suite.md](Aircrack-ng%20Suite.md) - Guide on using the Aircrack-ng suite for wireless security testing.
-- [Bind Shell Reverse Shell.md](Bind%20Shell%20Reverse%20Shell.md) - Notes on bind shell and reverse shell techniques.
-- [decryptpractice.md](decryptpractice.md) - Practice file for decryption techniques.
-- [Easy Webserver setup.md](Easy%20Webserver%20setup.md) - Quick guide for setting up a web server.
-- [enumeration techniques.md](enumeration%20tecniques.md) - Techniques for enumeration in pentesting.
-- [ferxobuster.md](ferxobuster.md) - Notes on using feroxbuster for web content discovery.
-- [github test for markdown.md](github%20test%20for%20markdown.md) - Test file for GitHub-flavored Markdown.
-- [Hashcat Notes.md](Hashcat%20Notes.md) - Notes on using Hashcat for password cracking.
-- [How to setup a webserver with python.md](How%20to%20setup%20a%20webserver%20with%20python.md) - Instructions for setting up a Python web server.
-- [HTB Crocodile Walkthrough.md](HTB%20Crocodile%20Walkthrough.md) - Hack The Box walkthrough for the "Crocodile" machine.
-- [Hydra Notes.md](Hydra%20Notes.md) - Documentation on Hydra for password brute-forcing.
-- [NMAP Notes.md](NMAP%20Notes.md) - Commands and notes for NMAP network scanning.
-- [normcap.md](normcap.md) - Notes on using normcap for text capture.
-- [Notes(from winOS).md](Notes(from%20winOS).md) - Various notes from a Windows environment.
-- [Notes.md](Notes.md) - General notes on various topics.
-- [PacketCaptureVPNkeyFind.md](PacketCaptureVPNkeyFind.md) - Guide for finding VPN keys through packet capture.
-- [Pentesting Online Tools.md](Pentesting%20Online%20Tools.md) - Collection of online tools for penetration testing.
-- [Pentesting Tools.md](Pentesting%20Tools.md) - List of essential pentesting tools.
-- [Privilege Escalation using text editors.md](Privilege%20Escalation%20using%20text%20editors.md) - Techniques for privilege escalation using text editors.
-- [ShellUpgrade.md](ShellUpgrade.md) - Guide on upgrading shell access.
-- [Steghide.md](Steghide.md) - Guide on using Steghide for steganography.
-- [The Metasploit Framework.md](The%20Metasploit%20Framework.md) - Overview and notes on using Metasploit.
-- [theHarvesterNotes.md](theHarvesterNotes.md) - Notes on using theHarvester for information gathering.
-- [THM Easy CTF.md](THM%20Easy%20CTF.md) - TryHackMe walkthrough for the Easy CTF challenge.
-- [TryHackMeBlueWalkThrough.md](TryHackMeBlueWalkThrough.md) - TryHackMe walkthrough for the Blue machine.
-- [TryHackMe_Fawn_Walkthrough.md](TryHackMe_Fawn_Walkthrough.md) - TryHackMe walkthrough for the Fawn machine.
-- [Video Server Instructions.md](Video%20Server%20Instructions.md) - Steps for setting up a video server.
-- [Week One Python CODE CYSE 250__.md](Week%20One%20Python%20CODE%20CYSE%20250__.md) - Python code and notes for CYSE 250, Week One.
+- [Aircrack-ng Suite](Aircrack-ng%20Suite) - Notes on using the Aircrack-ng suite.
+- [Bind Shell vs. Reverse Shell](Bind%20Shell%20Reverse%20Shell) - Explanation of different shell types.
+- [Decrypt Practice](decryptpractice) - Exercises for practicing decryption techniques.
+- [Easy Webserver Setup](Easy%20Webserver%20setup) - Guide to setting up a simple webserver.
+- [Enumeration Techniques](enumeration%20tecniques) - Methods and tips for enumeration in pentesting.
+- [Feroxbuster](ferxobuster) - Notes on using Feroxbuster for directory brute-forcing.
+- [GitHub Test for Markdown](github%20test%20for%20markdown) - A sample Markdown test file.
+- [Hashcat Notes](Hashcat%20Notes) - Usage and commands for Hashcat.
+- [Python Webserver Setup](How%20to%20setup%20a%20webserver%20with%20python) - Guide on setting up a webserver with Python.
+- [HTB Crocodile Walkthrough](HTB%20Crocodile%20Walkthrough) - Hack The Box walkthrough for "Crocodile" machine.
+- [Hydra Notes](Hydra%20Notes) - Notes on using Hydra.
+- [NMAP Notes](NMAP%20Notes) - Commands and tips for NMAP.
+- [Normcap Notes](normcap) - Using Normcap for OCR.
+- [Notes (from WinOS)](Notes(from%20winOS)) - Notes taken from Windows OS.
+- [General Notes](Notes) - Various notes.
+- [Packet Capture VPN Key Finding](PacketCaptureVPNkeyFind) - Finding VPN keys in packet captures.
+- [Pentesting Online Tools](Pentesting%20Online%20Tools) - A list of online pentesting tools.
+- [Pentesting Tools](Pentesting%20Tools) - General list of tools for pentesting.
+- [Privilege Escalation with Text Editors](Privilege%20Escalation%20using%20text%20editors) - Methods of privilege escalation.
+- [Shell Upgrade](ShellUpgrade) - Commands for upgrading shells.
+- [Steghide](Steghide) - Guide on using Steghide for steganography.
+- [Metasploit Framework](The%20Metasploit%20Framework) - Notes on using Metasploit.
+- [The Harvester Notes](theHarvesterNotes) - Notes on using The Harvester.
+- [THM Easy CTF](THM%20Easy%20CTF) - TryHackMe "Easy CTF" walkthrough.
+- [TryHackMe Blue Walkthrough](TryHackMeBlueWalkThrough) - Walkthrough for "Blue" room on TryHackMe.
+- [TryHackMe Fawn Walkthrough](TryHackMe_Fawn_Walkthrough) - Walkthrough for "Fawn" room on TryHackMe.
+- [Video Server Instructions](Video%20Server%20Instructions) - Instructions for setting up a video server.
+- [Week One Python Code (CYSE 250)](Week%20One%20Python%20CODE%20CYSE%20250__) - Python code from week one of CYSE 250.

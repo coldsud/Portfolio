@@ -1,18 +1,18 @@
-# Bash Scripts Overview
+# Bash Scripts
 
-This section contains various Bash scripts, covering tasks like network scanning, conditional logic, and brute-forcing with Hydra.
+This section contains useful Bash scripts for various tasks, from network sweeps to basic scripting exercises.
 
-## Files
+## Contents
 
-- [arrays.sh](arrays.sh) - Demonstrates array handling in Bash.
-- [conditionals.sh](conditionals.sh) - Basic conditional logic in Bash.
-- [conditionalsv2.sh](conditionalsv2.sh) - Advanced conditional logic in Bash.
-- [hydra.restore](hydra.restore) - Hydra session restore file.
-- [hydraBruteFast.sh](hydraBruteFast.sh) - Script for quick brute-forcing using Hydra.
-- [parameters.sh](parameters.sh) - Script demonstrating parameter handling in Bash.
-- [PingSweep.sh](PingSweep.sh) - Script for ping sweeping across a network.
-- [pingsweepnoip.sh](pingsweepnoip.sh) - Ping sweep without specifying IP addresses.
-- [practice.sh](practice.sh) - Practice script for basic Bash commands.
-- [rot13practice.sh](rot13practice.sh) - Practice script for ROT13 encoding/decoding.
-- [SoundAtInterval.sh](SoundAtInterval.sh) - Plays a sound at specified intervals.
-- [sweepresults.txt](sweepresults.txt) - Text file with results from a ping sweep.
+- [Arrays](arrays) - Demonstrates array usage in Bash.
+- [Conditionals](conditionals) - Shows basic conditionals in Bash.
+- [Conditionals v2](conditionalsv2) - Advanced conditional examples.
+- [Hydra Restore](hydra.restore) - Contains Hydra restore data.
+- [Hydra Brute Force](hydraBruteFast) - A script for Hydra brute-force attacks.
+- [Parameters](parameters) - Basic parameter handling in Bash.
+- [Ping Sweep](PingSweep) - Script for conducting a ping sweep.
+- [Ping Sweep No IP](pingsweepnoip) - Modified ping sweep without IP specification.
+- [Practice Script](practice) - General scripting practice.
+- [ROT13 Practice](rot13practice) - Practice script for ROT13 encoding.
+- [Sound at Interval](SoundAtInterval) - Plays a sound at set intervals.
+- [Sweep Results](sweepresults.txt) - Output from ping sweeps.

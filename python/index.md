@@ -1,17 +1,17 @@
-# Python Projects Overview
+# Python Projects
 
-This section contains various Python scripts, covering topics such as Bitcoin value tracking, network scanning, and decryption.
+This section contains Python projects and scripts. Each item listed below links to a specific script or project, providing details and code samples.
 
-## Files
+## Contents
 
-- [base64](base64) - Placeholder or data related to Base64 encoding/decoding.
-- [bitcoinv2.py](bitcoinv2.py) - Tracks Bitcoin value changes.
-- [BitcoinValueTracker.py](BitcoinValueTracker.py) - Script to monitor Bitcoin value.
-- [decrypt_type7.py](decrypt_type7.py) - Decrypts Cisco Type 7 passwords.
-- [exploit_OpenSSHd_7.2p2_username_enumeration.py](exploit_OpenSSHd_7.2p2_username_enumeration.py) - Exploit for OpenSSHd 7.2p2 username enumeration.
-- [MISC CODE FILE.py](MISC%20CODE%20FILE.py) - Miscellaneous Python code.
-- [pingsweep.py](pingsweep.py) - Script to perform a network ping sweep.
-- [portsweepwithservice.py](portsweepwithservice.py) - Port sweep script with service detection.
-- [PythonPractice.py](PythonPractice.py) - Basic practice script for Python.
-- [ShippingCost.py](ShippingCost.py) - Script for calculating shipping costs.
-- [subprocess](subprocess) - Placeholder or script related to subprocess operations in Python.
+- [Base64](base64) - Encodes/decodes Base64 strings.
+- [Bitcoin Tracker v2](bitcoinv2) - A script that tracks Bitcoin prices.
+- [Bitcoin Value Tracker](BitcoinValueTracker) - Another Bitcoin tracking script with additional features.
+- [Decrypt Type7](decrypt_type7) - Decrypts Cisco Type 7 passwords.
+- [OpenSSH Username Enumeration Exploit](exploit_OpenSSHd_7.2p2_username_enumeration) - A Python script for OpenSSH enumeration.
+- [Misc Code File](MISC%20CODE%20FILE) - Assorted code snippets and examples.
+- [Ping Sweep](pingsweep) - A script for network ping sweeps.
+- [Port Sweep with Service Detection](portsweepwithservice) - A port sweep with additional service detection.
+- [Python Practice](PythonPractice) - General Python practice code.
+- [Shipping Cost Calculator](ShippingCost) - Calculates shipping costs based on weight and distance.
+- [Subprocess](subprocess) - Demonstrates subprocess handling in Python.
