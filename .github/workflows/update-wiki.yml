@@ -1,0 +1,37 @@
+name: Update Wiki from Portfolio
+
+on:
+  push:
+    branches:
+      - main  # Change this if your primary branch has a different name
+
+jobs:
+  update-wiki:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: Set up Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "[email protected]"
+
+      - name: Clone Wiki Repository
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git clone https://github.com/coldsud/Portfolio.wiki.git wiki
+
+      - name: Sync Portfolio Content to Wiki
+        run: |
+          rsync -av --delete --exclude='.git' ./* wiki/
+          cd wiki
+          git add .
+          git commit -m "Update wiki content from Portfolio"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
