@@ -1,17 +1,93 @@
 # Python Projects
 
-This section contains Python projects and scripts. Each item listed below links to a specific script or project, providing details and code samples.
+This section contains Python projects and scripts. Click each title to expand and view the code.
 
 ## Contents
 
-- [Base64](base64) - Encodes/decodes Base64 strings.
-- [Bitcoin Tracker v2](bitcoinv2) - A script that tracks Bitcoin prices.
-- [Bitcoin Value Tracker](BitcoinValueTracker) - Another Bitcoin tracking script with additional features.
-- [Decrypt Type7](decrypt_type7) - Decrypts Cisco Type 7 passwords.
-- [OpenSSH Username Enumeration Exploit](exploit_OpenSSHd_7.2p2_username_enumeration) - A Python script for OpenSSH enumeration.
-- [Misc Code File](MISC%20CODE%20FILE) - Assorted code snippets and examples.
-- [Ping Sweep](pingsweep) - A script for network ping sweeps.
-- [Port Sweep with Service Detection](portsweepwithservice) - A port sweep with additional service detection.
-- [Python Practice](PythonPractice) - General Python practice code.
-- [Shipping Cost Calculator](ShippingCost) - Calculates shipping costs based on weight and distance.
-- [Subprocess](subprocess) - Demonstrates subprocess handling in Python.
+<details>
+  <summary>base64</summary>
+
+  ```python
+  {% include_relative base64 %}
+  ```
+</details>
+
+<details>
+  <summary>Bitcoin Value Tracker</summary>
+
+  ```python
+  {% include_relative BitcoinValueTracker.py %}
+  ```
+</details>
+
+<details>
+  <summary>bitcoinv2</summary>
+
+  ```python
+  {% include_relative bitcoinv2.py %}
+  ```
+</details>
+
+<details>
+  <summary>decrypt_type7</summary>
+
+  ```python
+  {% include_relative decrypt_type7.py %}
+  ```
+</details>
+
+<details>
+  <summary>Exploit OpenSSH Username Enumeration</summary>
+
+  ```python
+  {% include_relative exploit_OpenSSHd_7.2p2_username_enumeration.py %}
+  ```
+</details>
+
+<details>
+  <summary>Misc Code File</summary>
+
+  ```python
+  {% include_relative MISC CODE FILE.py %}
+  ```
+</details>
+
+<details>
+  <summary>Ping Sweep</summary>
+
+  ```python
+  {% include_relative pingsweep.py %}
+  ```
+</details>
+
+<details>
+  <summary>Port Sweep with Service</summary>
+
+  ```python
+  {% include_relative portsweepwithservice.py %}
+  ```
+</details>
+
+<details>
+  <summary>Python Practice</summary>
+
+  ```python
+  {% include_relative PythonPractice.py %}
+  ```
+</details>
+
+<details>
+  <summary>Shipping Cost Calculator</summary>
+
+  ```python
+  {% include_relative ShippingCost.py %}
+  ```
+</details>
+
+<details>
+  <summary>Subprocess Demo</summary>
+
+  ```python
+  {% include_relative subprocess %}
+  ```
+</details>
