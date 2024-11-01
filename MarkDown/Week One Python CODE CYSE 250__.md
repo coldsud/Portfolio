@@ -957,6 +957,54 @@ while True:
 f.close()
 f2.close()
 ```
+## **_ex5-1_**
+
+## Your Tasks
+
+**A group of statisticians at a local college has asked you to create a set of functions that compute the median and mode of a set of numbers, as defined in Section 5.4.Define these functions in a module named stats.py. Also include a function named mean, which computes the average of a set of numbers. Each function should expect a list of numbers as an argument and return a single number. Each function should return 0 if the list is empty. Include a main function that tests the three statistical functions with a given list. (LO: 5.1, 5.2)**
+
+```
+# Write your program here
+import statistics
+
+#Mean function defined
+def mean(numbers):
+    if not numbers:
+        return 0
+    mmean = sum(numbers) / len(numbers)
+    return mmean
+    
+    print(f"The mean is {mmean}")
+
+#Median function defined
+def median(numbers):
+    if not numbers:
+        return 0
+    mmedian = statistics.median(numbers)
+    return mmedian
+
+    print(f"The median is: {mmedian}")
+#Mode function defined
+def mode(numbers):
+    if not numbers:
+        return 0
+    mmode = statistics.mode(numbers)
+    return mmode
+
+    print(f"The mode is: {mmode}")
+# this is the main function that calls all the other functions
+def main():
+
+    numbers =(input("Please input a list of numbers seperated by a space:"))
+    numbers = [int(num) for num in numbers.split()] # this makes the numbers integers and splits each values that was enterd into it's own number
+    mmean = mean(numbers)
+    mmedian = median(numbers)
+    mmode = mode(numbers)
+
+    print(f"The Mean is: {mmean}")
+    print(f"The Median is: {mmedian}")
+    print(f"The Mode is: {mmode}")
+```
 
 ## **_ex5-2_**
 
@@ -987,6 +1035,135 @@ while True:
         print("Enter a valid integer.")
 ```
 
+## **_ex5-3_**
+
+### Your Tasks
+
+**Modify the sentence-generator program of Case Study 5-1 (in the file generator.py) so that it inputs its vocabulary from a set of text files at startup. The filenames are nouns.txt, verbs.txt, articles.txt, and prepositions.txt. (Hint: Define a single new function, getWords. This function should expect a filename as an argument. The function should open an input file with this name, define a temporary list, read words from the file, and add them to the list. The function should then convert the list to a tuple and return this tuple. Call the function with an actual filename to initialize each of the four variables for the vocabulary.) (LO: 5.1, 5.2)**
+
+```
+"""
+Program: generator.py
+Author: Ken
+Generates and displays sentences using a simple grammar
+and vocabulary.  Words are chosen at random.
+"""
+
+import random
+
+articles = ("articles.txt")
+nouns = ("nouns.txt")
+verbs = ("verbs.txt")
+prepositions = ("prepositions.txt")
+
+def getWords(filename):
+    """Reads words from a file, converts them to uppercase, splits them into words, and returns them as a tuple."""
+    word_list = []
+    with open(filename, "r") as f:
+        for line in f:
+            # Strip whitespace, and split into words
+            words_in_line = line.strip().split()
+            word_list.extend(words_in_line)
+    return tuple(word_list)
+
+def getwords():
+    global articles, nouns, verbs, prepositions
+    
+    articles = getWords("articles.txt")
+    nouns = getWords("nouns.txt")
+    verbs = getWords("verbs.txt")
+    prepositions = getWords("prepositions.txt")
+
+def sentence():
+    """Builds and returns a sentence."""
+    return nounPhrase() + " " + verbPhrase()
+
+def nounPhrase():
+    """Builds and returns a noun phrase."""
+    return random.choice(articles) + " " + random.choice(nouns)
+
+def verbPhrase():
+    """Builds and returns a verb phrase."""
+    return random.choice(verbs) + " " + nounPhrase() + " " + \
+           prepositionalPhrase()
+
+def prepositionalPhrase():
+    """Builds and returns a prepositional phrase."""
+    return random.choice(prepositions) + " " + nounPhrase()
+
+def main():
+    """Allows the user to input the number of sentences
+    to generate."""
+    getwords()
+    number = int(input("Enter the number of sentences: "))
+    for count in range(number):
+        print(sentence())
+
+    
+
+# The entry point for program execution
+if __name__ == "__main__":
+    main()
+```
+## **_ex5-5_**
+
+### Your Tasks
+
+**Chapter 4 presented an algorithm for converting from binary to decimal. You can generalize this algorithm to work for a representation in any base. Instead of using a power of 2, this time you use a power of the base. Also, you use digits greater than 9, such as A … F, when they occur.**
+
+**Define a function named repToDecimal in the file convert.py that expects two arguments, a string and an integer. The second argument should be the base. For example, repToDecimal("10", 8) returns 8, whereas repToDecimal("10", 16) returns 16. The function should use a lookup table to find the value of any digit. Make sure that this table (it is actually a dictionary) is initialized before the function is defined. For its keys, use the 10 decimal digits (all strings) and the letters A … F (all uppercase). The value stored with each key should be the integer that the digit represents. (The letter 'A' associates with the integer value 10, and so on.) The main loop of the function should convert each digit to uppercase, look up its value in the table, and use this value in the computation. Include a main function that tests the conversion function with numbers in several bases. (LO: 5.2, 5.3)**
+
+```
+# Write your program here
+# Lookup table for digits and letters
+base_int_dict = {
+    '0': 0, '1': 1, '2': 2, '3': 3, '4': 4,
+    '5': 5, '6': 6, '7': 7, '8': 8, '9': 9,
+    'A': 10, 'B': 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15
+}
+
+
+def repToDecimal(rep, base):
+    rep = rep.upper #converting to upercase
+    dval = 0 #intializeation
+    exp = len(rep)
+
+    for digits in rep:
+        if digit in base_int_dict:
+            value = base_int_dict[digit]
+
+    return dval
+    print(f"{repToDecimal}")
+```
+
+## **_ex5-6_**
+
+### Your Task
+
+**Define a function decimalToRep in the file convert.py that returns the representation of an integer in a given base. The two arguments should be the integer and the base. The function should return a string. It should use a lookup table that associates integers with digits. Include a main function that tests the conversion function with numbers in several bases. (LO: 5.2, 5.3)**
+
+```
+# Write your program here
+
+#reversed the order of what i did in 5-5. instead of 'A': 10 it would be 10:'A'
+base_int_dict = {
+    0: '0', 1: '1', 2: '2', 3: '3', 4: '4',
+    5: '5', 6: '6', 7: '7', 8: '8', 9: '9',
+    10: 'A', 11: 'B', 12: 'C', 13: 'D', 14: 'E', 15: 'F'
+}
+def decimalToRep():
+    rep = rep.upper #converting to upercase
+    dval = 0 #intializeation
+    exp = len(rep)
+
+    for digits in rep:
+        if digit in base_int_dict:
+            value = base_int_dict[digit]
+
+    return dval
+    print(f"{decimalToRepl}")
+```
+
 
 ## **_ex5-7_**
 
@@ -1005,3 +1182,45 @@ awords = sorted(set(words))  # Create a sorted list of unique words
 
 print(" ".join(awords))  # Join and print sorted words on one line
 ```
+
+
+## **_ex5-8_**
+
+### Your Tasks
+
+**A file concordance tracks the unique words in a file and their frequencies. Write a program in the file concordance.py that displays a concordance for a file. The program should output the unique words and their frequencies in alphabetical order. Variations are to track sequences of two words and their frequencies, or n words and their frequencies. (LO: 5.3)**
+
+```
+# Write your program here
+from collections import Counter
+
+filename = input("Enter the input file name: ")  # Read the file name
+
+with open(filename, 'r') as tfile:  # Open file in read mode using 'with'
+    file_contents = tfile.read()  # Read text from file
+
+words = file_contents.split()  # Split text into words
+awords = sorted(set(words))  # Create a sorted list of unique words
+tawords = Counter(words)  # Counts unique words
+
+for word in awords:
+    print(f"{word} {tawords[word]}")
+```
+
+
+# note #
+
+this will also work without importing Counter from collections
+```
+# Count occurrences of each word
+for word in words:
+    if word in tawords:
+        tawords[word] += 1
+    else:
+        tawords[word] = 1
+
+# Output the word and the count
+for word in awords:
+    print(f"{word} {tawords[word]}")
+```
+    
