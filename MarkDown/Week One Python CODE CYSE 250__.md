@@ -1223,4 +1223,216 @@ for word in words:
 for word in awords:
     print(f"{word} {tawords[word]}")
 ```
+
+## **_ex6-1_**
+
+### Your tasks
+
+**Package Newton’s method for approximating square roots (Case Study 3-2) in a function named newton. This function expects the input number as an argument and returns the estimate of its square root. The script in the file named newton.py should also include a main function that allows the user to compute square roots of inputs until she presses the enter/return key. (LO: 6.2)**
+
+```
+import math
+
+def newton(numtoroot):
+    tol = 0.000001  
+    newtsqrt = numtoroot  # Initialize with numtoroot for faster convergence
+    max_iterations = 10
+    iteration = 0
+    while iteration < max_iterations:
+        newtsqrt = 0.5 * (newtsqrt + numtoroot / newtsqrt)  # Correct Newton-Raphson formula
+        diff = abs(numtoroot - newtsqrt ** 2)
+        if diff <= tol:
+            break
+        iteration += 1
+    return newtsqrt
+
+def main():
+    while True:
+        numtoroot = input("Enter a positive number or enter/return to quit: ")
+        if numtoroot == "":
+            break
+        numtoroot = float(numtoroot)
+
+        newte = newton(numtoroot)
+        pythe = math.sqrt(numtoroot)
+        print(f"The program's estimate is {newte}")
+        print(f"Python's estimate is {pythe}")
+
+if __name__ == "__main__":
+    main()
+```
+
+
+## **_ex6-3_**
+
+### Your tasks
+
+**A list is sorted in ascending order if it is empty or each item except the last one is less than or equal to its successor. Define a predicate isSorted that expects a list as an argument and returns True if the list is sorted or returns False otherwise. (Hint: For a list of length 2 or greater, loop through the list and compare pairs of items, from left to right, and return False if the first item in a pair is greater.) Include the function in a short tester program in the file named testsort.py. (LO: 6.2)**
+
+```
+def isSorted (lst):
+    if len(lst) < 2:
+        return True
+    for i in range(1, len(lst)):
+        if lst[i] < lst[i - 1]:
+            return False
+    return True    
+```
+
+
+## **_ex6-6_**
+
+### Your tasks
+
+
+#### Your goal is to create and thoroughly test a Python function named myRange. This function is to be defined in a file titled testmyrange.py. The purpose of myRange is to mimic the functionality of Python's built-in range function, but with a notable exception: instead of producing a range object, myRange will generate and return a list of integers. This exercise is designed to deepen your understanding of function parameters, control flow, and list operations in Python. It is crucial that you do not use the built-in range function in your solution.
+Function Requirements
+
+Parameters:
+        The myRange function should accept three parameters. The first parameter represents the starting point of the range. The second and third parameters are optional; they represent the stopping point of the range and the step by which the range increments or decrements, respectively.
+        Utilize a default value of None for the second and third parameters to indicate that they are optional.
+
+Behavior:
+        When the function is called with a single argument, treat this argument as the stopping point of the range, and set the starting point to 0. The step, in this case, defaults to 1.
+        When the function is called with two arguments, treat the first argument as the starting point and the second as the stopping point of the range. The step defaults to 1.
+        When the function is called with all three arguments, the first argument is the starting point, the second is the stopping point, and the third is the step.
+        The function should produce a list of integers starting from the first argument up to, but not including, the second argument, incrementing by the third argument's value if the start is less than the stop. If the start is greater than the stop, the list should decrement.
+        If the step is 0 or leads to an infinite loop (e.g., step is positive when the start is greater than the stop or negative when the start is less than the stop), the function should return an empty list.
+
+Return Value:
+        The function returns a list of integers calculated based on the arguments provided.
+
+Hints
+
+Begin by determining the actual values of the parameters based on the rules mentioned above. This involveshandling cases where some parameters are not provided (i.e., are None).
+Next, use a loop to construct the list of integers. Pay careful attention to the direction in which you count(upward or downward) and ensure that your loop terminates correctly.
+Consider edge cases, such as when the step is 0 or does not logically align with the start and stop values, toprevent infinite loops.
+
+Learning Outcome (LO: 6.3)
+
+Upon completing this task, you will have gained a deeper understanding of function definition, parameter handling, conditional statements, and loop constructs in Python. This exercise will also enhance your ability to translate complex requirements into working code.
+Testing Your Function
+
+After defining the myRange function, you are expected to rigorously test its functionality to ensure it behaves as expected. Implement a main function within the testmyrange.py file that calls myRange with various combinations of arguments and prints the results. Examples of test calls include:
+
+    myRange(10)
+    myRange(1, 10)
+    myRange(1, 10, 2)
+    myRange(10, 1, -1)
+
+Use these tests to verify that your function handles different scenarios correctly. Remember, thorough testing is key to ensuring the reliability of your implementation.**
+
+
+```
+def myrange(start, stop=None, step=None):
+    """
+    Generates a list of integers, similar to the built-in range() function,
+    but returns a list instead of a range object.
+
+    Args:
+      start: The starting number of the sequence.
+      stop: The ending number of the sequence (exclusive).
+            If not provided, start defaults to 0 and stop to the provided value.
+      step: The increment between each number in the sequence.
+            Defaults to 1 if not provided.
+
+    Returns:
+      A list of integers.
+    """
+
+    # Handle cases where stop and/or step are not provided
+    if stop is None:  
+        stop = start  # If only one argument is provided, set stop to that value
+        start = 0    # and start from 0
+        step = 1     # with a step of 1
+    elif step is None:  
+        start = start  # If two arguments are provided, use them as start and stop
+        stop = stop
+        step = 1     # with a step of 1
+    else:  
+        start = start  # If three arguments are provided, use all of them
+        stop = stop
+        step = step
+
+    # Handle invalid step values
+    if step == 0:  
+        return []  # Return an empty list if the step is 0
+
+    result = []  # Initialize an empty list to store the results
+
+    # Generate the list of numbers based on the step direction
+    if (step > 0 and start < stop):  # Increasing sequence
+        while start < stop:
+            result.append(start)  # Add the current number to the list
+            start += step        # Increment start by the step value
+    elif (step < 0 and start > stop):  # Decreasing sequence
+        while start > stop:
+            result.append(start)  # Add the current number to the list
+            start += step        # Decrement start by the step value (since step is negative)
+    else:  
+        pass  # Do nothing for invalid step direction (e.g., positive step with start > stop)
+
+    return result  # Return the generated list
+```    
+
+
+## **_ex6-7_**
+
+### Your tasks
+
+**Add a function named inputFloat to the module testinputfunctions (available in the file named testinputfunctions.py. This function behaves like the function inputInt developed in this chapter but provides for the robust input of floating-point numbers. This function allows digits only or digits and a single decimal point in the input string. Test your new function in this module. (LO: 6.2)**
+
+```
+def inputFloat(uput):
     
+    while True:
+        
+        uput = input("Please enter an integer or a float: ")
+        
+        if uput.count (".") > 1:
+            
+            print("Error: the input cannot have more than one")
+
+        elif not uput.replace('.', '',1).isdigit():
+            print("Error: the input must consist only of digits")
+
+        else:
+            return float(uput)
+```
+
+## **_ex7-6_**
+
+### Your tasks
+
+**Write a program (in the file average.py) that computes and prints the average of the numbers in a text file. You should make use of two higher-order functions to simplify the design. (LO: 7.2)**
+
+```
+#Reads numbers from a file and returns them as a list of floats.
+def read_numbers(filename): 
+  
+  with open(filename, "r") as f:
+    numbers = []
+    for line in f:
+      numbers.extend([float(num) for num in line.strip().split()])
+    return numbers
+
+#Calculates and prints the average using a given function.
+def print_average(numbers, func):
+  
+  try:
+    average = func(numbers) / len(numbers)
+    print("The average is:", average)
+  except ZeroDivisionError:
+    print("Error: Empty list.")
+
+#Calculates and prints the average of numbers in a file.
+def main():
+  
+  filename = input("Enter the filename: ")  # Get filename from user
+  numbers = read_numbers(filename)  # Pass filename to read_numbers
+  print_average(numbers, sum)
+
+if __name__ == "__main__":
+  main()
+```
+  
