@@ -1459,38 +1459,128 @@ True: True
 
 ```
 class Student:
-    def __init__(self, name):
-        self.name = name
-        
-    def __eq__(self, other):
-        """Check if two Student names are equal and print the result in the required format."""
-        result = self.name == other.name
-        print(f"{result}: {result}")
-        return result
+    def __init__(self,name,number):
+    
+        self.name=name #instance Variable
+        self.courses=[] #Instance Variable
+        for i in range(number):
+            self.courses.append(0) #initialization which puts the grades at 0
 
-    def __lt__(self, other):
-        """Check if this Student's name is less than the other Student's name and print the result in the required format."""
-        result = self.name < other.name
-        print(f"{result}: {result}")
-        return result
+    def __lt__(p,q):
+        if p.name<q.name:
+            return True
+        else:
+            return False
+    def __ge__(p,q):
+        if p.name>=q.name:
+            return True
+        else:
+            return False
+    def __eq__(p,q):
+        if p.name==q.name:
+            return True
+        else:
+            return False
 
-    def __ge__(self, other):
-        """Check if this Student's name is greater than or equal to the other Student's name and print the result in the required format."""
-        result = self.name >= other.name
-        print(f"{result}: {result}")
-        return result
+    def __str__(self):
+        s=""
+        s=s+self.name+" "
+        for i in range(len(self.courses)):
+            s=s+str(self.courses[i])+" "
+            return s     
+
 
 def main():
-    """Tests the comparison operators for the Student class with user input."""
-
-    name1 = input("Enter the name of the first student: ")
-    name1 = Student(name1)
-
-    name2 = input("Enter the name of the second student: ")
-    name2 = Student(name2)
-
+    s1 =Student("Ken",10)
+    s2 =Student ("Mary",10)
+    s3 =Student ("Carlos",10)
+    print(s1)
+    print(s2)
+    print(s3)
+    print("False:", s1 == s2)
+    print("True:", s1 == s3)
+    print("True:", s1 == s1)
+    print("False:", s1 is s3)
+    print("True:", s1 < s2)
+    print("True:", s2 > s1)
+    print("True:", s2 >= s1)
+    print("True:", s1 >= s3)
+    print("True:", s1 <= s2)
+    print("True:", s1 <= s3)
     
 
 if __name__ == "__main__":
     main()
 ```    
+
+## **_ex10-2_**
+
+### Your tasks
+
+**This project assumes that you have completed Project 1. Place several Student objects into a list and shuffle it. Then run the sort method with this list and display all of the students’ information. Print to the console the unsorted list first of all students followed by the sorted list of all students**
+
+Note: The sorted list should output in the following format:
+```
+Sorted list of students:
+Name: Name1
+Scores: 0 0 0 0 0 0 0 0 0 0
+Name: Name2
+Scores: 0 0 0 0 0 0 0 0 0 0
+Name: Name3
+Scores: 0 0 0 0 0 0 0 0 0 0
+Name: Name4
+Scores: 0 0 0 0 0 0 0 0 0 0
+Name: Name5
+Scores: 0 0 0 0 0 0 0 0 0 0
+```
+
+```
+# Write your code here
+import random
+
+class Student:
+    def __init__(self, name, number):
+        self.name = name  # Instance Variable for student's name
+        self.courses = [0] * number  # Initialize a list of grades with 0s
+
+    def __lt__(self, other):
+        return self.name < other.name
+
+    def __ge__(self, other):
+        return self.name >= other.name
+
+    def __eq__(self, other):
+        return self.name == other.name
+
+    def __str__(self):
+        # Format output to match the prompt's required format
+        courses_str = " ".join(map(str, self.courses))
+        return f"Name: {self.name}\nScores: {courses_str}"
+
+def main():
+    # Initialize the list with specific Student objects
+    lyst = [
+        Student("Berry", 10),
+        Student("Dawn", 10),
+        Student("Gale", 10),
+        Student("Chan", 10),
+        Student("April", 10)
+    ]
+
+    # Shuffle and print the unsorted list of students
+    random.shuffle(lyst)
+    print("Unsorted list of students:")
+    for student in lyst:
+        print(student)
+
+
+    # Sort and print the sorted list of students
+    lyst.sort()
+    print("Sorted list of students:")
+    for student in lyst:
+        print(student)
+       
+
+if __name__ == "__main__":
+    main()
+```
