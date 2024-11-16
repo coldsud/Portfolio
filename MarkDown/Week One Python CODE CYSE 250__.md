@@ -1435,4 +1435,62 @@ def main():
 if __name__ == "__main__":
   main()
 ```
-  
+
+## **_ex10-1_**
+
+### Your tasks
+
+**Add three methods to the Student class that compare two Student objects. One method (__eq__) should test for equality. A second method (__lt__) should test for less than. The third method (__ge__) should test for greater than or equal to. In each case, the method returns the result of the comparison of the two students’ names. Include a main function that tests all of the comparison operators.**
+
+Note: The program should output in the following format:
+```
+False: False
+True: True
+True: True
+False: False
+True: True
+True: True
+True: True
+True: True
+True: True
+True: True
+```
+(LO: 10.2)
+
+```
+class Student:
+    def __init__(self, name):
+        self.name = name
+        
+    def __eq__(self, other):
+        """Check if two Student names are equal and print the result in the required format."""
+        result = self.name == other.name
+        print(f"{result}: {result}")
+        return result
+
+    def __lt__(self, other):
+        """Check if this Student's name is less than the other Student's name and print the result in the required format."""
+        result = self.name < other.name
+        print(f"{result}: {result}")
+        return result
+
+    def __ge__(self, other):
+        """Check if this Student's name is greater than or equal to the other Student's name and print the result in the required format."""
+        result = self.name >= other.name
+        print(f"{result}: {result}")
+        return result
+
+def main():
+    """Tests the comparison operators for the Student class with user input."""
+
+    name1 = input("Enter the name of the first student: ")
+    name1 = Student(name1)
+
+    name2 = input("Enter the name of the second student: ")
+    name2 = Student(name2)
+
+    
+
+if __name__ == "__main__":
+    main()
+```    
