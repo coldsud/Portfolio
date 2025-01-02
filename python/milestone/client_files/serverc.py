@@ -1,6 +1,7 @@
 import socket
 import json
 import os
+import bcrypt
 from cryptography.fernet import Fernet
 
 # -------------------- Configuration -------------------- #
@@ -37,7 +38,7 @@ def load_key():
 
 # Initialize Fernet cipher
 key = load_key()
-cipher_suite = Fernet(key)
+cypher = Fernet(key)
 
 # -------------------- User Management -------------------- #
 
@@ -66,7 +67,12 @@ def register_user(client, users):
         return False
     send_encrypted(client, "Enter a password:")
     password = receive_encrypted(client)
-    users[username] = password
+    if not password:
+        send_encrypted(client, "Invalid password. Registration failed.\n")
+        return False
+    # Hash the password
+    hashed_password = bcrypt.hashpw(password.encode(), bcrypt.gensalt())
+    users[username] = hashed_password.decode()  # Store as string
     save_users(users)
     send_encrypted(client, "Registration successful!\n")
     return True
@@ -77,25 +83,26 @@ def login_user(client, users):
     username = receive_encrypted(client)
     send_encrypted(client, "Enter your password:")
     password = receive_encrypted(client)
-    if username in users and users[username] == password:
-        send_encrypted(client, "Login successful!\n")
-        return True
-    else:
-        send_encrypted(client, "Invalid credentials.\n")
-        return False
+    if username in users:
+        stored_hashed = users[username].encode()
+        if bcrypt.checkpw(password.encode(), stored_hashed):
+            send_encrypted(client, "Login successful!\n")
+            return True
+    send_encrypted(client, "Invalid credentials.\n")
+    return False
 
 # -------------------- Encryption Functions -------------------- #
 
 def send_encrypted(client, message):
     """Encrypt and send a message to the client."""
-    encrypted_message = cipher_suite.encrypt(message.encode())
+    encrypted_message = cypher.encrypt(message.encode())
     client.sendall(encrypted_message)
 
 def receive_encrypted(client):
     """Receive and decrypt a message from the client."""
     encrypted_message = client.recv(BUFSIZE)
     try:
-        decrypted_message = cipher_suite.decrypt(encrypted_message).decode()
+        decrypted_message = cypher.decrypt(encrypted_message).decode()
     except:
         decrypted_message = ""
     return decrypted_message
@@ -127,7 +134,7 @@ def receive_file(client):
             break
         encrypted_data += chunk
     try:
-        file_data = cipher_suite.decrypt(encrypted_data)
+        file_data = cypher.decrypt(encrypted_data)
     except:
         send_encrypted(client, "Failed to decrypt file data.")
         return
@@ -156,7 +163,7 @@ def send_file(client):
     file_path = os.path.join(SERVER_FILES_DIR, filename)
     with open(file_path, 'rb') as f:
         file_data = f.read()
-    encrypted_data = cipher_suite.encrypt(file_data)
+    encrypted_data = cypher.encrypt(file_data)
     # Send the length of the encrypted data
     data_length = len(encrypted_data)
     client.sendall(str(data_length).encode())

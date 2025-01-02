@@ -17,7 +17,7 @@ CLIENT_FILES_DIR = 'client_files'
 os.makedirs(CLIENT_FILES_DIR, exist_ok=True)
 
 # -------------------- Encryption Setup -------------------- #
-
+# Must Generate a key 
 def load_key():
     """Load the encryption key from the key.key file."""
     if not os.path.exists(KEY_FILE):
@@ -32,20 +32,20 @@ def load_key():
 
 # Initialize Fernet cipher
 key = load_key()
-cipher_suite = Fernet(key)
+cipher = Fernet(key)
 
 # -------------------- Encryption Functions -------------------- #
 
 def send_encrypted(message):
     """Encrypt and send a message to the server."""
-    encrypted_message = cipher_suite.encrypt(message.encode())
+    encrypted_message = cipher.encrypt(message.encode())
     client.sendall(encrypted_message)
 
 def receive_encrypted():
     """Receive and decrypt a message from the server."""
     encrypted_message = client.recv(BUFSIZE)
     try:
-        decrypted_message = cipher_suite.decrypt(encrypted_message).decode()
+        decrypted_message = cipher.decrypt(encrypted_message).decode()
     except:
         decrypted_message = ""
     return decrypted_message
@@ -68,7 +68,7 @@ def upload_file():
     # Read and encrypt the file data
     with open(filepath, 'rb') as f:
         file_data = f.read()
-    encrypted_data = cipher_suite.encrypt(file_data)
+    encrypted_data = cipher.encrypt(file_data)
     # Send the length of the encrypted data
     data_length = len(encrypted_data)
     client.sendall(str(data_length).encode())
@@ -107,7 +107,7 @@ def download_file():
         encrypted_data += chunk
     client.send(b'ACK')  # Send acknowledgment
     try:
-        file_data = cipher_suite.decrypt(encrypted_data)
+        file_data = cipher.decrypt(encrypted_data)
     except:
         print("Failed to decrypt file data.")
         return
