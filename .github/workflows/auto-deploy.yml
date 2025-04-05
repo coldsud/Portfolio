@@ -1,0 +1,31 @@
+name: Auto-Deploy GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Trigger on push to the main branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Set up Jekyll
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.7' # Version compatible with Jekyll
+      
+      - name: Install Jekyll dependencies
+        run: bundle install
+      
+      - name: Build site
+        run: bundle exec jekyll build -d ./docs
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
