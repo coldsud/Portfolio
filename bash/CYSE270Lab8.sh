@@ -1,17 +1,19 @@
 #!/bin/bash
 
-num = input("Enter Number for evalutatoin")
+#pompt for numeber
+ten=10
+echo "Enter the number to check: "
 
-if [ $num -eq 10 ]
+read check
+
+if [ $check -gt $ten ]
 
 then
 
-	echo "Input number is greater than 10"
+echo "input number is greater than 10"
 
 else
 
-	echo "Input number is not greater than 10"
+echo "input number is not greater than 10"
 
 fi
-echo "Thanks for checking"
-
